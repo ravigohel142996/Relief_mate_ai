@@ -374,9 +374,9 @@ def inject_custom_css():
     }
     
     /* Hide Streamlit branding */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
+    #MainMenu {display: none;}
+    footer {display: none;}
+
     
     /* Improved spacing - Max Width Container */
     .block-container {
@@ -525,6 +525,22 @@ def inject_custom_css():
         border: 1px solid rgba(148, 163, 184, 0.2);
     }
     </style>
+    /* 🔥 FORCE FULL APP BACKGROUND — STREAMLIT OVERRIDE */
+html, body {
+    background: linear-gradient(135deg, #020617, #0f172a) !important;
+}
+
+[data-testid="stAppViewContainer"] {
+    background: linear-gradient(135deg, #020617, #0f172a) !important;
+}
+
+[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+[data-testid="stToolbar"] {
+    right: 2rem;
+}
     """, unsafe_allow_html=True)
 
 # ----------------------------
