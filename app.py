@@ -255,25 +255,26 @@ def inject_custom_css():
         transform: translateY(0px) scale(0.98) !important;
     }
     
-    /* Text Input - Tactile Console Feel */
+    /* Text Input - Tactile Console Feel with Enhanced Visibility */
     .stTextInput > div > div > input,
     .stTextArea > div > div > textarea {
-        background: rgba(15, 23, 42, 0.8) !important;
-        border: 1px solid rgba(100, 116, 139, 0.3) !important;
+        background: rgba(15, 23, 42, 0.9) !important;
+        border: 2px solid rgba(6, 182, 212, 0.4) !important;
         border-radius: 12px !important;
         color: #e2e8f0 !important;
-        padding: 14px 16px !important;
-        font-size: 1rem !important;
+        padding: 16px 20px !important;
+        font-size: 1.05rem !important;
         transition: all 0.3s ease !important;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) inset !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) inset, 0 0 0 1px rgba(6, 182, 212, 0.2) !important;
     }
     
     .stTextInput > div > div > input:focus,
     .stTextArea > div > div > textarea:focus {
         border-color: #06b6d4 !important;
-        box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2),
+        box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3),
+                    0 0 20px rgba(6, 182, 212, 0.3),
                     0 4px 16px rgba(0, 0, 0, 0.3) inset !important;
-        background: rgba(15, 23, 42, 0.9) !important;
+        background: rgba(15, 23, 42, 0.95) !important;
     }
     
     .stSelectbox > div > div {
@@ -345,7 +346,7 @@ def inject_custom_css():
         letter-spacing: 0.05em;
     }
     
-    /* Tab Styling - Floating Glass Pills */
+    /* Tab Styling - Floating Glass Pills with Enhanced Visibility */
     .stTabs [data-baseweb="tab-list"] {
         gap: 12px;
         background: transparent;
@@ -356,36 +357,37 @@ def inject_custom_css():
     }
     
     .stTabs [data-baseweb="tab"] {
-        background: rgba(30, 41, 59, 0.4);
+        background: rgba(30, 41, 59, 0.6) !important;
         backdrop-filter: blur(12px) saturate(150%);
         -webkit-backdrop-filter: blur(12px) saturate(150%);
         border-radius: 24px;
-        color: #e2e8f0 !important;
-        padding: 12px 28px;
-        font-weight: 600;
-        border: 1px solid rgba(148, 163, 184, 0.15);
-        font-size: 1rem !important;
+        color: #cbd5e1 !important;
+        padding: 14px 32px !important;
+        font-weight: 600 !important;
+        border: 1.5px solid rgba(148, 163, 184, 0.3) !important;
+        font-size: 1.05rem !important;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     }
     
     .stTabs [data-baseweb="tab"]:hover {
-        background: rgba(30, 41, 59, 0.6);
-        border-color: rgba(6, 182, 212, 0.25);
+        background: rgba(30, 41, 59, 0.75) !important;
+        border-color: rgba(6, 182, 212, 0.4) !important;
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(6, 182, 212, 0.2);
+        color: #e2e8f0 !important;
     }
     
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, rgba(6, 182, 212, 0.25) 0%, rgba(8, 145, 178, 0.2) 100%) !important;
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.35) 0%, rgba(8, 145, 178, 0.3) 100%) !important;
         color: #22d3ee !important;
-        border: 1px solid rgba(6, 182, 212, 0.4) !important;
-        border-bottom: 3px solid #22d3ee !important;
-        box-shadow: 0 4px 24px rgba(6, 182, 212, 0.3),
-                    0 0 12px rgba(34, 211, 238, 0.6),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        border: 2px solid rgba(6, 182, 212, 0.6) !important;
+        border-bottom: 4px solid #22d3ee !important;
+        box-shadow: 0 6px 28px rgba(6, 182, 212, 0.4),
+                    0 0 20px rgba(34, 211, 238, 0.7),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
         transform: translateY(-2px) scale(1.05) !important;
-        text-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+        text-shadow: 0 0 20px rgba(6, 182, 212, 0.6), 0 2px 4px rgba(0, 0, 0, 0.3);
     }
     
     /* Hide Streamlit branding */
@@ -395,8 +397,10 @@ def inject_custom_css():
     
     /* Improved spacing - Max Width Container */
     .block-container {
-        padding-top: 2rem;
-        padding-bottom: 3rem;
+        padding-top: 2.5rem;
+        padding-bottom: 4rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
         max-width: 1400px;
         position: relative;
         z-index: 1;
@@ -406,20 +410,25 @@ def inject_custom_css():
         color: #ffffff;
         font-weight: 700;
         letter-spacing: -0.02em;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
     }
     
     h2 {
-        margin-bottom: 12px;
+        margin-bottom: 16px;
+        margin-top: 40px;
         font-size: 1.8rem;
     }
     
     h3 {
         font-size: 1.3rem;
+        margin-top: 32px;
     }
     
     p, label {
         color: #94a3b8;
-        line-height: 1.6;
+        line-height: 1.7;
+        margin-bottom: 0.8rem;
     }
     
     /* Status badges with Subtle Glow */
@@ -635,7 +644,7 @@ def render_university_header():
         -webkit-backdrop-filter: blur(20px) saturate(180%);
         border: 1px solid rgba(148, 163, 184, 0.18);
         border-radius: 16px;
-        padding: 20px 32px;
+        padding: 24px 32px;
         text-align: center;
         margin: 24px auto;
         max-width: 900px;
@@ -643,11 +652,11 @@ def render_university_header():
                     0 1px 2px rgba(6, 182, 212, 0.1),
                     inset 0 1px 0 rgba(255, 255, 255, 0.05);
     ">
-        <p style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin: 0 0 8px 0; letter-spacing: 0.02em;">
-            🎓 Vivekananda Global University, Jaipur, Rajasthan
+        <p style="color: #ffffff; font-size: 1.2rem; font-weight: 700; margin: 0 0 8px 0; letter-spacing: 0.02em;">
+            🎓 Marwadi University
         </p>
-        <p style="color: #94a3b8; font-size: 0.95rem; margin: 0; font-weight: 500;">
-            Department of CSE – AI & ML
+        <p style="color: #94a3b8; font-size: 1rem; margin: 0; font-weight: 500;">
+            Department: Computer Science & Engineering – AI & ML
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -673,21 +682,21 @@ def render_chat_interface(model, api_status):
     """, unsafe_allow_html=True)
     
     # Centered chat input container with glass effect
-    st.markdown('<div style="max-width: 900px; margin: 0 auto; background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(20px); border-radius: 16px; padding: 24px; border: 1px solid rgba(148, 163, 184, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">', unsafe_allow_html=True)
+    st.markdown('<div style="max-width: 1000px; margin: 0 auto; background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(20px); border-radius: 16px; padding: 32px; border: 2px solid rgba(6, 182, 212, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(6, 182, 212, 0.15);">', unsafe_allow_html=True)
     
     # Chat input
-    col1, col2 = st.columns([5, 1])
+    col1, col2 = st.columns([6, 1])
     
     with col1:
         user_input = st.text_input(
             "Ask your question:",
-            placeholder="e.g., 'What should I do during a flood emergency?'",
+            placeholder="Ask about floods, earthquakes, safe zones, shelters, live updates…",
             key="chat_input",
             label_visibility="collapsed"
         )
     
     with col2:
-        send_button = st.button("Send", use_container_width=True)
+        send_button = st.button("📤 Send", use_container_width=True)
     
     st.markdown('</div>', unsafe_allow_html=True)
     
@@ -850,19 +859,22 @@ def render_reports_dashboard(reports):
         disaster_icon = disaster_icons.get(report["type"], "⚠️")
         
         st.markdown(f"""
-        <div class="glass-card" style="box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), {card_glow}, 0 0 60px rgba(6, 182, 212, 0.05) inset !important;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
-                <h3 style="color: #ffffff; margin: 0; display: flex; align-items: center; gap: 10px; font-size: 1.3rem; font-weight: 700;">
-                    {disaster_icon} {report["location"]} • {report["type"]}
-                </h3>
-                <span class="{status_class}">
-                    {report["status"].replace("🚨 ", "").replace("🔥 ", "").replace("⚠️ ", "").replace("✅ ", "").replace("📋 ", "")}
+        <div class="glass-card" style="box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), {card_glow}, 0 0 60px rgba(6, 182, 212, 0.05) inset !important; margin-bottom: 28px !important; padding: 32px !important;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <h2 style="color: #ffffff; margin: 0; display: flex; align-items: center; gap: 12px; font-size: 1.8rem; font-weight: 700;">
+                    {disaster_icon} {report["location"]}
+                </h2>
+                <span class="{status_class}" style="font-size: 0.95rem; padding: 8px 16px;">
+                    {icon} {report["status"].replace("🚨 ", "").replace("🔥 ", "").replace("⚠️ ", "").replace("✅ ", "").replace("📋 ", "")}
                 </span>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 12px; color: #cbd5e1;">
-                <p style="margin: 0;"><strong style="color: #94a3b8;">📦 Requirements:</strong> <span style="color: #e2e8f0;">{report["needs"]}</span></p>
-                <p style="margin: 0; color: #94a3b8;"><strong style="color: #94a3b8;">👥 Team:</strong> <span style="color: #cbd5e1;">{report["team"]}</span></p>
-                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">🕐 Updated: {datetime.datetime.now().strftime('%H:%M')} IST</p>
+            <div style="background: rgba(15, 23, 42, 0.4); padding: 20px; border-radius: 12px; margin-bottom: 16px; border-left: 3px solid rgba(6, 182, 212, 0.5);">
+                <p style="margin: 0 0 8px 0; font-size: 1.05rem;"><strong style="color: #06b6d4;">🏷️ Disaster Type:</strong> <span style="color: #e2e8f0;">{report["type"]}</span></p>
+                <p style="margin: 0; font-size: 1.05rem;"><strong style="color: #06b6d4;">📦 Requirements:</strong> <span style="color: #e2e8f0;">{report["needs"]}</span></p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: #94a3b8; font-size: 0.9rem;">
+                <p style="margin: 0;"><strong style="color: #94a3b8;">👥 Response Team:</strong> <span style="color: #cbd5e1; font-weight: 600;">{report["team"]}</span></p>
+                <p style="margin: 0; color: #64748b; font-style: italic;">🕐 Last Updated: {datetime.datetime.now().strftime('%H:%M')} IST</p>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -872,10 +884,114 @@ def render_reports_dashboard(reports):
 # ----------------------------
 def render_analytics(analytics_data):
     st.markdown("## 📊 Performance Analytics")
-    st.markdown('<p style="color: #94a3b8; margin-bottom: 32px; text-align: center;">Data-driven insights for operational efficiency</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #94a3b8; margin-bottom: 24px; text-align: center; font-size: 1.05rem;">Operational trends from the last 7 days – Real-time insights for efficient disaster response</p>', unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Live Intelligence Section
+    st.markdown("### 🌍 Live Intelligence Dashboard")
+    st.markdown('<p style="color: #94a3b8; margin-bottom: 24px; text-align: center;">Real-time disaster monitoring and location tracking (Demo Data)</p>', unsafe_allow_html=True)
+    
+    col1, col2, col3, col4 = st.columns(4)
+    
+    # Generate demo values
+    cities = [
+        {"name": "Jaipur", "status": "Safe", "color": "#10b981", "icon": "🟢"},
+        {"name": "Rajkot", "status": "Alert", "color": "#f59e0b", "icon": "🟡"},
+        {"name": "Ahmedabad", "status": "Safe", "color": "#10b981", "icon": "🟢"},
+        {"name": "Surat", "status": "Critical", "color": "#ef4444", "icon": "🔴"}
+    ]
+    
+    with col1:
+        city = cities[0]
+        st.markdown(f"""
+        <div class="glass-card" style="text-align: center; min-height: 180px;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">{city['icon']}</div>
+            <div class="metric-value" style="font-size: 1.5rem; color: {city['color']}; text-shadow: 0 0 20px {city['color']}80;">{city['name']}</div>
+            <div class="metric-label" style="font-size: 0.8rem; margin-top: 8px;">Status: {city['status']}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown("""
+        <div class="glass-card" style="text-align: center; min-height: 180px;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🏥</div>
+            <div style="font-size: 1rem; color: #22d3ee; font-weight: 600; margin: 12px 0; text-shadow: 0 0 15px rgba(34, 211, 238, 0.4);">Govt. Hospital</div>
+            <div class="metric-label" style="font-size: 0.8rem;">Nearby Safe Place<br>2.3 km away</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col3:
+        st.markdown("""
+        <div class="glass-card" style="text-align: center; min-height: 180px;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">📡</div>
+            <div class="metric-value" style="font-size: 1.8rem; color: #ef4444; text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);">4.8</div>
+            <div class="metric-label" style="font-size: 0.8rem;">Richter Scale<br>(Demo Signal)</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col4:
+        st.markdown("""
+        <div class="glass-card" style="text-align: center; min-height: 180px;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🌊</div>
+            <div class="metric-value" style="font-size: 1.5rem; color: #f59e0b; text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);">Moderate</div>
+            <div class="metric-label" style="font-size: 0.8rem;">Flood Risk Level</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Nearby Safe Places
+    st.markdown("### 🧭 Nearby Safe Places (Demo)")
+    st.markdown('<div style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); padding: 28px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); margin-bottom: 32px; border: 1px solid rgba(148, 163, 184, 0.2);">', unsafe_allow_html=True)
+    
+    safe_places = [
+        {"icon": "🏫", "name": "Govt. School - Sector 12", "distance": "1.2 km", "type": "Shelter"},
+        {"icon": "🏥", "name": "City Hospital - Main Road", "distance": "2.3 km", "type": "Medical"},
+        {"icon": "🏟️", "name": "Sports Stadium - Civil Lines", "distance": "3.5 km", "type": "Shelter"},
+        {"icon": "🏛️", "name": "Municipal Building - Center", "distance": "1.8 km", "type": "Admin"}
+    ]
+    
+    cols = st.columns(4)
+    for idx, place in enumerate(safe_places):
+        with cols[idx]:
+            st.markdown(f"""
+            <div style="text-align: center; padding: 16px; background: rgba(15, 23, 42, 0.6); border-radius: 12px; border: 1px solid rgba(148, 163, 184, 0.2);">
+                <div style="font-size: 2rem; margin-bottom: 8px;">{place['icon']}</div>
+                <p style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem; margin: 0 0 4px 0;">{place['name']}</p>
+                <p style="color: #06b6d4; font-size: 0.85rem; margin: 0 0 4px 0;">{place['distance']}</p>
+                <span style="background: rgba(6, 182, 212, 0.15); color: #06b6d4; padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; border: 1px solid rgba(6, 182, 212, 0.3);">{place['type']}</span>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Live Map Placeholder
+    st.markdown("### 🗺️ Live Map Integration")
+    st.markdown("""
+    <div style="
+        background: rgba(30, 41, 59, 0.6);
+        backdrop-filter: blur(20px);
+        padding: 60px 40px;
+        border-radius: 16px;
+        text-align: center;
+        border: 2px dashed rgba(6, 182, 212, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        margin-bottom: 48px;
+    ">
+        <div style="font-size: 3.5rem; margin-bottom: 20px;">🗺️</div>
+        <h3 style="color: #ffffff; margin-bottom: 16px; font-weight: 700;">Live Map Integration</h3>
+        <p style="color: #94a3b8; font-size: 1rem; margin: 0;">
+            Google Maps / ISRO Bhuvan / NDMA Integration – Planned
+        </p>
+        <p style="color: #64748b; font-size: 0.9rem; margin-top: 12px;">
+            Real-time GPS tracking, disaster zones, and safe routes visualization
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
     
     # Disaster Intelligence Panel
-    st.markdown("### 🧠 Disaster Intelligence Panel")
+    st.markdown("### 🧠 Operational Monitoring")
     st.markdown('<p style="color: #94a3b8; margin-bottom: 24px; text-align: center;">Real-time technical monitoring and response metrics</p>', unsafe_allow_html=True)
     
     col1, col2, col3, col4 = st.columns(4)
@@ -923,7 +1039,7 @@ def render_analytics(analytics_data):
         </div>
         """, unsafe_allow_html=True)
     
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<br><br>", unsafe_allow_html=True)
     
     # Create DataFrame
     df = pd.DataFrame({
@@ -934,18 +1050,20 @@ def render_analytics(analytics_data):
     })
     
     # Charts with better styling - Embedded in glass panels
-    st.markdown("### 📈 7-Day Operations Trend")
-    st.markdown('<div style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); padding: 28px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); margin-bottom: 32px; border: 1px solid rgba(148, 163, 184, 0.2);">', unsafe_allow_html=True)
+    st.markdown("### 📈 7-Day Operational Trends")
+    st.markdown('<p style="color: #94a3b8; margin-bottom: 20px; text-align: center; font-size: 0.95rem;">Track relief operations performance over the past week – requests received, cases resolved, and active interventions</p>', unsafe_allow_html=True)
+    st.markdown('<div style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); padding: 32px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); margin-bottom: 40px; border: 1px solid rgba(148, 163, 184, 0.2);">', unsafe_allow_html=True)
     
     # Line chart using Streamlit
     chart_data = df.set_index('Date')[['New Requests', 'Resolved Cases', 'Active Cases']]
-    st.line_chart(chart_data, use_container_width=True)
+    st.line_chart(chart_data, use_container_width=True, height=400)
     st.markdown('</div>', unsafe_allow_html=True)
     
     # Bar chart for comparison
-    st.markdown("### 📊 Daily Comparison")
-    st.markdown('<div style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); padding: 28px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); margin-bottom: 32px; border: 1px solid rgba(148, 163, 184, 0.2);">', unsafe_allow_html=True)
-    st.bar_chart(chart_data, use_container_width=True)
+    st.markdown("### 📊 Daily Performance Comparison")
+    st.markdown('<p style="color: #94a3b8; margin-bottom: 20px; text-align: center; font-size: 0.95rem;">Side-by-side comparison of daily operations metrics</p>', unsafe_allow_html=True)
+    st.markdown('<div style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); padding: 32px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); margin-bottom: 40px; border: 1px solid rgba(148, 163, 184, 0.2);">', unsafe_allow_html=True)
+    st.bar_chart(chart_data, use_container_width=True, height=400)
     st.markdown('</div>', unsafe_allow_html=True)
     
     # Summary statistics with neon underlines
@@ -1207,12 +1325,64 @@ def main():
     with tab4:
         render_admin_panel()
     
-    # Footer - Minimal & Professional
+    # Footer - Professional with University Info
     st.markdown("""
-    <div style="text-align: center; margin-top: 80px; padding: 32px; border-top: 1px solid rgba(148, 163, 184, 0.2); background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(10px);">
-        <p style="color: #64748b; margin: 0; font-size: 0.875rem; font-weight: 500;">
-            © 2025 ReliefMate AI • Emergency Hotline: <span style="color: #06b6d4;">112 (Police) | 108 (Medical) | 101 (Fire)</span>
-        </p>
+    <div style="
+        position: relative;
+        margin-top: 100px;
+        padding: 40px 32px 32px 32px;
+        border-top: 2px solid rgba(6, 182, 212, 0.2);
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-radius: 16px 16px 0 0;
+        box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    ">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <!-- University Info -->
+            <div style="text-align: center; margin-bottom: 24px;">
+                <p style="color: #ffffff; font-size: 1.1rem; font-weight: 700; margin: 0 0 8px 0; letter-spacing: 0.02em;">
+                    🏫 Marwadi University
+                </p>
+                <p style="color: #94a3b8; font-size: 0.95rem; margin: 0 0 6px 0; font-weight: 500;">
+                    📘 Department: Computer Science & Engineering (AI & ML)
+                </p>
+                <p style="color: #cbd5e1; font-size: 0.9rem; margin: 0; font-weight: 500;">
+                    👨‍🎓 Student: <span style="color: #22d3ee;">Ravi Gohel N.</span> (2nd Year)
+                </p>
+                <p style="color: #94a3b8; font-size: 0.85rem; margin: 8px 0 0 0;">
+                    📧 Email: <a href="mailto:ravi.n.gohel811@gmail.com" style="color: #06b6d4; text-decoration: none;">ravi.n.gohel811@gmail.com</a>
+                </p>
+            </div>
+            
+            <!-- Emergency Numbers -->
+            <div style="
+                text-align: center;
+                padding: 20px 24px;
+                background: rgba(220, 38, 38, 0.12);
+                border: 1.5px solid rgba(220, 38, 38, 0.3);
+                border-radius: 12px;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 16px rgba(220, 38, 38, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            ">
+                <p style="color: #ef4444; font-weight: 700; font-size: 1rem; margin: 0 0 8px 0; text-shadow: 0 0 10px rgba(239, 68, 68, 0.4);">
+                    ⚠️ Emergency Numbers
+                </p>
+                <p style="color: #fca5a5; font-size: 1.1rem; font-weight: 600; margin: 0; letter-spacing: 0.05em;">
+                    🚔 112 (Police) | 🚑 108 (Medical) | 🚒 101 (Fire)
+                </p>
+            </div>
+            
+            <!-- Copyright -->
+            <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(148, 163, 184, 0.15);">
+                <p style="color: #64748b; margin: 0; font-size: 0.85rem; font-weight: 500;">
+                    © 2025 ReliefMate AI • Built for State-Level Buildathon
+                </p>
+                <p style="color: #475569; margin: 8px 0 0 0; font-size: 0.8rem;">
+                    Advanced Disaster Relief Management System
+                </p>
+            </div>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
