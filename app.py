@@ -32,21 +32,18 @@ def inject_custom_css():
         box-sizing: border-box;
     }
     
-    .main {
-        padding: 0 !important;
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e293b 100%);
-        color: #e2e8f0;
-        font-family: 'Inter', sans-serif;
+    /* 🔥 CLOUD-SAFE FULL PAGE DARK GRADIENT - Using data-testid selectors */
+    [data-testid="stAppViewContainer"] {
+        background: linear-gradient(135deg, #0f172a 0%, #020617 25%, #0f172a 50%, #1e293b 75%, #0f172a 100%) !important;
         position: relative;
-        min-height: 100vh;
     }
     
-    .stApp {
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e293b 100%);
+    [data-testid="stApp"] {
+        background: transparent !important;
     }
     
-    /* Animated Background Overlay */
-    .main::before {
+    /* Animated Background Overlay with Radial Gradients */
+    [data-testid="stAppViewContainer"]::before {
         content: '';
         position: fixed;
         top: 0;
@@ -59,18 +56,20 @@ def inject_custom_css():
         z-index: 0;
     }
     
-    /* Header Section - Futuristic Command Center */
+    /* Header Section - Premium Glass Command Center */
     .hero-container {
-        background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(14, 116, 144, 0.2) 100%);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(6, 182, 212, 0.2);
-        border-radius: 16px;
+        background: rgba(30, 41, 59, 0.4);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 20px;
         padding: 48px 40px 40px 40px;
         text-align: left;
         margin: 20px auto 48px auto;
         max-width: 1400px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 
-                    0 0 100px rgba(6, 182, 212, 0.1) inset;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37), 
+                    0 1px 2px rgba(6, 182, 212, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.05);
         position: relative;
         z-index: 1;
     }
@@ -83,7 +82,7 @@ def inject_custom_css():
         display: flex;
         align-items: center;
         gap: 16px;
-        text-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(6, 182, 212, 0.3);
         letter-spacing: -0.02em;
     }
     
@@ -104,42 +103,45 @@ def inject_custom_css():
         font-size: 0.875rem;
         font-weight: 600;
         border: 1px solid rgba(16, 185, 129, 0.3);
-        box-shadow: 0 0 20px rgba(16, 185, 129, 0.2),
-                    0 0 40px rgba(16, 185, 129, 0.1) inset;
-        animation: pulse-glow 2s ease-in-out infinite;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        animation: pulse-glow 3s ease-in-out infinite;
     }
     
     @keyframes pulse-glow {
         0%, 100% { 
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2),
-                        0 0 40px rgba(16, 185, 129, 0.1) inset;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         50% { 
-            box-shadow: 0 0 30px rgba(16, 185, 129, 0.4),
-                        0 0 60px rgba(16, 185, 129, 0.2) inset;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
     }
     
     .emergency-info {
         margin-top: 20px;
         padding: 16px 20px;
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(10px);
+        background: rgba(15, 23, 42, 0.5);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         border-radius: 12px;
         border-left: 3px solid #fbbf24;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     }
     
     /* Glassmorphism Cards with 3D Depth */
     .glass-card {
-        background: rgba(30, 41, 59, 0.6) !important;
-        backdrop-filter: blur(20px) !important;
+        background: rgba(30, 41, 59, 0.5) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
         border-radius: 16px !important;
-        border: 1px solid rgba(148, 163, 184, 0.2) !important;
+        border: 1px solid rgba(148, 163, 184, 0.18) !important;
         padding: 28px !important;
         margin: 24px 0 !important;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-                    0 0 60px rgba(6, 182, 212, 0.05) inset !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37),
+                    0 1px 2px rgba(6, 182, 212, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
         color: #e2e8f0 !important;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
         position: relative !important;
@@ -147,10 +149,11 @@ def inject_custom_css():
     }
     
     .glass-card:hover {
-        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5),
-                    0 0 80px rgba(6, 182, 212, 0.1) inset !important;
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.45),
+                    0 2px 4px rgba(6, 182, 212, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
         transform: translateY(-4px) !important;
-        border-color: rgba(6, 182, 212, 0.4) !important;
+        border-color: rgba(6, 182, 212, 0.3) !important;
     }
     
     .glass-card::before {
@@ -171,19 +174,22 @@ def inject_custom_css():
     
     /* Chat Interface - Command Console Style */
     .chat-container {
-        background: rgba(30, 41, 59, 0.6) !important;
-        backdrop-filter: blur(20px) !important;
+        background: rgba(30, 41, 59, 0.5) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
         border-radius: 16px !important;
         padding: 28px !important;
-        border: 1px solid rgba(6, 182, 212, 0.2) !important;
+        border: 1px solid rgba(148, 163, 184, 0.18) !important;
         margin: 28px 0 !important;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-                    0 0 60px rgba(6, 182, 212, 0.05) inset !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37),
+                    0 1px 2px rgba(6, 182, 212, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
     }
     
     .chat-message {
         background: rgba(15, 23, 42, 0.6);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         padding: 16px 20px;
         border-radius: 12px;
         margin: 12px 0;
@@ -193,8 +199,9 @@ def inject_custom_css():
     }
     
     .chat-message:hover {
-        background: rgba(15, 23, 42, 0.8);
+        background: rgba(15, 23, 42, 0.75);
         transform: translateX(4px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     }
     
     .chat-message strong {
@@ -202,18 +209,18 @@ def inject_custom_css():
         font-weight: 600;
     }
     
-    /* Futuristic Buttons with Glow */
+    /* Futuristic Buttons with Subtle Glow */
     .stButton > button {
         background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) !important;
         color: white !important;
-        border: 1px solid rgba(6, 182, 212, 0.5) !important;
+        border: 1px solid rgba(6, 182, 212, 0.4) !important;
         border-radius: 12px !important;
         padding: 12px 28px !important;
         font-weight: 600 !important;
         font-size: 0.95rem !important;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        box-shadow: 0 4px 16px rgba(6, 182, 212, 0.3),
-                    0 0 40px rgba(6, 182, 212, 0.1) inset !important;
+        box-shadow: 0 4px 16px rgba(6, 182, 212, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
         position: relative !important;
         overflow: hidden !important;
     }
@@ -226,7 +233,7 @@ def inject_custom_css():
         width: 0;
         height: 0;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.15);
         transform: translate(-50%, -50%);
         transition: width 0.6s, height 0.6s;
     }
@@ -238,9 +245,10 @@ def inject_custom_css():
     
     .stButton > button:hover {
         background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%) !important;
-        box-shadow: 0 6px 24px rgba(6, 182, 212, 0.5),
-                    0 0 60px rgba(6, 182, 212, 0.2) inset !important;
+        box-shadow: 0 6px 24px rgba(6, 182, 212, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
         transform: translateY(-2px) !important;
+        border-color: rgba(6, 182, 212, 0.6) !important;
     }
     
     .stButton > button:active {
@@ -281,14 +289,16 @@ def inject_custom_css():
     
     /* Metrics - Command Center Stats */
     .metric-container {
-        background: rgba(30, 41, 59, 0.6);
-        backdrop-filter: blur(20px);
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
         border-radius: 16px;
         padding: 28px 24px;
         text-align: center;
-        border: 1px solid rgba(148, 163, 184, 0.2);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
-                    0 0 60px rgba(6, 182, 212, 0.05) inset;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37),
+                    0 1px 2px rgba(6, 182, 212, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.05);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
@@ -307,10 +317,11 @@ def inject_custom_css():
     }
     
     .metric-container:hover {
-        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5),
-                    0 0 80px rgba(6, 182, 212, 0.1) inset;
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.45),
+                    0 2px 4px rgba(6, 182, 212, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.08);
         transform: translateY(-4px);
-        border-color: rgba(6, 182, 212, 0.4);
+        border-color: rgba(6, 182, 212, 0.3);
     }
     
     .metric-container:hover::after {
@@ -322,7 +333,7 @@ def inject_custom_css():
         font-weight: 800;
         color: #ffffff;
         margin-bottom: 8px;
-        text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 15px rgba(6, 182, 212, 0.3);
         letter-spacing: -0.02em;
     }
     
@@ -345,32 +356,34 @@ def inject_custom_css():
     }
     
     .stTabs [data-baseweb="tab"] {
-        background: rgba(30, 41, 59, 0.5);
-        backdrop-filter: blur(10px);
+        background: rgba(30, 41, 59, 0.4);
+        backdrop-filter: blur(12px) saturate(150%);
+        -webkit-backdrop-filter: blur(12px) saturate(150%);
         border-radius: 24px;
         color: #94a3b8;
         padding: 12px 28px;
         font-weight: 600;
-        border: 1px solid rgba(148, 163, 184, 0.2);
+        border: 1px solid rgba(148, 163, 184, 0.15);
         font-size: 0.95rem;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     }
     
     .stTabs [data-baseweb="tab"]:hover {
-        background: rgba(30, 41, 59, 0.7);
-        border-color: rgba(6, 182, 212, 0.3);
+        background: rgba(30, 41, 59, 0.6);
+        border-color: rgba(6, 182, 212, 0.25);
         transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
     
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(8, 145, 178, 0.3) 100%) !important;
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.25) 0%, rgba(8, 145, 178, 0.2) 100%) !important;
         color: #06b6d4 !important;
-        border: 1px solid rgba(6, 182, 212, 0.5) !important;
-        box-shadow: 0 4px 24px rgba(6, 182, 212, 0.4),
-                    0 0 40px rgba(6, 182, 212, 0.1) inset !important;
+        border: 1px solid rgba(6, 182, 212, 0.4) !important;
+        box-shadow: 0 4px 24px rgba(6, 182, 212, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
         transform: translateY(-2px) scale(1.05) !important;
-        text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        text-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
     }
     
     /* Hide Streamlit branding */
@@ -407,7 +420,7 @@ def inject_custom_css():
         line-height: 1.6;
     }
     
-    /* Status badges with Glow */
+    /* Status badges with Subtle Glow */
     .status-critical {
         background: rgba(220, 38, 38, 0.15);
         color: #ef4444;
@@ -416,19 +429,19 @@ def inject_custom_css():
         font-weight: 600;
         font-size: 0.85rem;
         border: 1px solid rgba(220, 38, 38, 0.3);
-        box-shadow: 0 0 20px rgba(220, 38, 38, 0.3),
-                    0 0 40px rgba(220, 38, 38, 0.1) inset;
-        animation: pulse-critical 2s ease-in-out infinite;
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        animation: pulse-critical 3s ease-in-out infinite;
     }
     
     @keyframes pulse-critical {
         0%, 100% { 
-            box-shadow: 0 0 20px rgba(220, 38, 38, 0.3),
-                        0 0 40px rgba(220, 38, 38, 0.1) inset;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         50% { 
-            box-shadow: 0 0 30px rgba(220, 38, 38, 0.5),
-                        0 0 60px rgba(220, 38, 38, 0.2) inset;
+            box-shadow: 0 4px 16px rgba(220, 38, 38, 0.35),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
     }
     
@@ -440,8 +453,8 @@ def inject_custom_css():
         font-weight: 600;
         font-size: 0.85rem;
         border: 1px solid rgba(217, 119, 6, 0.3);
-        box-shadow: 0 0 20px rgba(217, 119, 6, 0.2),
-                    0 0 40px rgba(217, 119, 6, 0.1) inset;
+        box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
     
     .status-resolved {
@@ -452,8 +465,8 @@ def inject_custom_css():
         font-weight: 600;
         font-size: 0.85rem;
         border: 1px solid rgba(16, 185, 129, 0.3);
-        box-shadow: 0 0 20px rgba(16, 185, 129, 0.2),
-                    0 0 40px rgba(16, 185, 129, 0.1) inset;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
     
     .status-monitoring {
@@ -464,8 +477,8 @@ def inject_custom_css():
         font-weight: 600;
         font-size: 0.85rem;
         border: 1px solid rgba(37, 99, 235, 0.3);
-        box-shadow: 0 0 20px rgba(37, 99, 235, 0.2),
-                    0 0 40px rgba(37, 99, 235, 0.1) inset;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
     
     /* Responsive */
@@ -480,12 +493,13 @@ def inject_custom_css():
     
     /* Streamlit Native Components Styling */
     .stMetric {
-        background: rgba(30, 41, 59, 0.6);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(148, 163, 184, 0.2);
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(148, 163, 184, 0.18);
         border-radius: 16px;
         padding: 20px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
     }
     
     .stMetric label {
@@ -498,13 +512,14 @@ def inject_custom_css():
     .stMetric [data-testid="stMetricValue"] {
         color: #ffffff !important;
         font-weight: 800;
-        text-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 15px rgba(6, 182, 212, 0.2);
     }
     
     /* File Uploader */
     .stFileUploader {
-        background: rgba(30, 41, 59, 0.6);
-        backdrop-filter: blur(20px);
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
         border: 2px dashed rgba(100, 116, 139, 0.3);
         border-radius: 16px;
         padding: 32px;
@@ -512,34 +527,33 @@ def inject_custom_css():
     }
     
     .stFileUploader:hover {
-        border-color: rgba(6, 182, 212, 0.5);
-        background: rgba(30, 41, 59, 0.8);
+        border-color: rgba(6, 182, 212, 0.4);
+        background: rgba(30, 41, 59, 0.65);
     }
     
     /* Data Frame */
 .stDataFrame {
-    background: rgba(30, 41, 59, 0.6);
-    backdrop-filter: blur(20px);
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid rgba(148, 163, 184, 0.2);
+    border: 1px solid rgba(148, 163, 184, 0.18);
 }
 
-/* 🔥 FORCE FULL APP BACKGROUND — STREAMLIT OVERRIDE */
-html, body {
-    background: linear-gradient(135deg, #020617, #0f172a) !important;
-}
-
-[data-testid="stAppViewContainer"] {
-    background: linear-gradient(135deg, #020617, #0f172a) !important;
-}
-
+/* 🔥 STREAMLIT CLOUD OVERRIDES - Ensure Dark Theme Everywhere */
 [data-testid="stHeader"] {
     background: transparent !important;
 }
 
 [data-testid="stToolbar"] {
     right: 2rem;
+}
+
+/* Global Text Colors */
+body {
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
 }
 </style>
 """, unsafe_allow_html=True)
