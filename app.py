@@ -517,15 +517,15 @@ def inject_custom_css():
     }
     
     /* Data Frame */
-    .stDataFrame {
-        background: rgba(30, 41, 59, 0.6);
-        backdrop-filter: blur(20px);
-        border-radius: 12px;
-        overflow: hidden;
-        border: 1px solid rgba(148, 163, 184, 0.2);
-    }
-    </style>
-    /* 🔥 FORCE FULL APP BACKGROUND — STREAMLIT OVERRIDE */
+.stDataFrame {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+/* 🔥 FORCE FULL APP BACKGROUND — STREAMLIT OVERRIDE */
 html, body {
     background: linear-gradient(135deg, #020617, #0f172a) !important;
 }
@@ -541,7 +541,8 @@ html, body {
 [data-testid="stToolbar"] {
     right: 2rem;
 }
-    """, unsafe_allow_html=True)
+</style>
+""", unsafe_allow_html=True)
 
 # ----------------------------
 # 🔑 Gemini API Setup - FIXED VERSION
