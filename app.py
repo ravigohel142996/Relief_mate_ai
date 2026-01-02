@@ -360,11 +360,11 @@ def inject_custom_css():
         backdrop-filter: blur(12px) saturate(150%);
         -webkit-backdrop-filter: blur(12px) saturate(150%);
         border-radius: 24px;
-        color: #94a3b8;
+        color: #e2e8f0 !important;
         padding: 12px 28px;
         font-weight: 600;
         border: 1px solid rgba(148, 163, 184, 0.15);
-        font-size: 0.95rem;
+        font-size: 1rem !important;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     }
@@ -378,9 +378,11 @@ def inject_custom_css():
     
     .stTabs [aria-selected="true"] {
         background: linear-gradient(135deg, rgba(6, 182, 212, 0.25) 0%, rgba(8, 145, 178, 0.2) 100%) !important;
-        color: #06b6d4 !important;
+        color: #22d3ee !important;
         border: 1px solid rgba(6, 182, 212, 0.4) !important;
+        border-bottom: 3px solid #22d3ee !important;
         box-shadow: 0 4px 24px rgba(6, 182, 212, 0.3),
+                    0 0 12px rgba(34, 211, 238, 0.6),
                     inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
         transform: translateY(-2px) scale(1.05) !important;
         text-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
@@ -623,6 +625,34 @@ def render_hero():
     """, unsafe_allow_html=True)
 
 # ----------------------------
+# 🎓 University Header Section
+# ----------------------------
+def render_university_header():
+    st.markdown("""
+    <div style="
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 16px;
+        padding: 20px 32px;
+        text-align: center;
+        margin: 24px auto;
+        max-width: 900px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37), 
+                    0 1px 2px rgba(6, 182, 212, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    ">
+        <p style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin: 0 0 8px 0; letter-spacing: 0.02em;">
+            🎓 Vivekananda Global University, Jaipur, Rajasthan
+        </p>
+        <p style="color: #94a3b8; font-size: 0.95rem; margin: 0; font-weight: 500;">
+            Department of CSE – AI & ML
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
+# ----------------------------
 # 💬 Enhanced Chat Interface - Command Console
 # ----------------------------
 def render_chat_interface(model, api_status):
@@ -772,6 +802,21 @@ def render_reports_dashboard(reports):
         </div>
         """.format(monitoring_count), unsafe_allow_html=True)
     
+    # Live Incident Map
+    st.markdown("### 🗺️ Live Incident Map (Demo)")
+    st.markdown('<p style="color: #94a3b8; margin-bottom: 20px; text-align: center;">Demo – Live integration ready with real-time GPS tracking</p>', unsafe_allow_html=True)
+    
+    # Demo coordinates for Rajasthan cities
+    map_data = pd.DataFrame({
+        'lat': [26.9124, 22.3039, 23.0225, 21.1702],
+        'lon': [75.7873, 70.8022, 72.5714, 72.8311]
+    })
+    
+    st.markdown('<div style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); padding: 28px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); margin-bottom: 32px; border: 1px solid rgba(148, 163, 184, 0.2);">', unsafe_allow_html=True)
+    st.map(map_data, zoom=6)
+    st.markdown('<p style="color: #94a3b8; font-size: 0.85rem; text-align: center; margin-top: 12px;">📍 Showing: Jaipur • Rajkot • Ahmedabad • Surat</p>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+    
     # Detailed reports with glowing chips
     st.markdown("### 📍 Operations Report")
     st.markdown("")  # spacing
@@ -828,6 +873,57 @@ def render_reports_dashboard(reports):
 def render_analytics(analytics_data):
     st.markdown("## 📊 Performance Analytics")
     st.markdown('<p style="color: #94a3b8; margin-bottom: 32px; text-align: center;">Data-driven insights for operational efficiency</p>', unsafe_allow_html=True)
+    
+    # Disaster Intelligence Panel
+    st.markdown("### 🧠 Disaster Intelligence Panel")
+    st.markdown('<p style="color: #94a3b8; margin-bottom: 24px; text-align: center;">Real-time technical monitoring and response metrics</p>', unsafe_allow_html=True)
+    
+    col1, col2, col3, col4 = st.columns(4)
+    
+    # Generate random demo values
+    earthquake_mag = round(random.uniform(3.5, 7.8), 1)
+    safe_zones = ["Govt School - Sector 12", "Community Hall - Civil Lines", "Sports Stadium - Main Road", "Municipal Building - City Center"]
+    safe_zone = random.choice(safe_zones)
+    distance = round(random.uniform(0.8, 4.5), 1)
+    eta = random.randint(5, 18)
+    
+    with col1:
+        st.markdown(f"""
+        <div class="glass-card" style="text-align: center; min-height: 180px;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🌍</div>
+            <div class="metric-value" style="font-size: 2rem; color: #ef4444; text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);">{earthquake_mag}</div>
+            <div class="metric-label" style="font-size: 0.8rem;">Earthquake Magnitude<br>(Richter Scale)</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown(f"""
+        <div class="glass-card" style="text-align: center; min-height: 180px;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">📍</div>
+            <div style="font-size: 1rem; color: #22d3ee; font-weight: 600; margin: 12px 0; text-shadow: 0 0 15px rgba(34, 211, 238, 0.4);">{safe_zone}</div>
+            <div class="metric-label" style="font-size: 0.8rem;">Nearest Safe Zone</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col3:
+        st.markdown(f"""
+        <div class="glass-card" style="text-align: center; min-height: 180px;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🧭</div>
+            <div class="metric-value" style="font-size: 2rem; color: #f59e0b; text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);">{distance} km</div>
+            <div class="metric-label" style="font-size: 0.8rem;">Distance to Safety</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col4:
+        st.markdown(f"""
+        <div class="glass-card" style="text-align: center; min-height: 180px;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🚑</div>
+            <div class="metric-value" style="font-size: 2rem; color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);">{eta} min</div>
+            <div class="metric-label" style="font-size: 0.8rem;">Response ETA</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
     
     # Create DataFrame
     df = pd.DataFrame({
@@ -927,6 +1023,54 @@ def render_analytics(analytics_data):
 def render_admin_panel():
     st.markdown("## 🛠️ Administration Panel")
     st.markdown('<p style="color: #94a3b8; margin-bottom: 32px; text-align: center;">Manage relief operations and system configuration</p>', unsafe_allow_html=True)
+    
+    # Live Tracking Status
+    st.markdown("### 📡 Live Tracking Status")
+    st.markdown('<p style="color: #94a3b8; margin-bottom: 24px; text-align: center;">Real-time monitoring of field operations and resource deployment</p>', unsafe_allow_html=True)
+    
+    col1, col2, col3 = st.columns(3)
+    
+    # Generate random demo values
+    teams_online = random.randint(5, 15)
+    vehicles_deployed = random.randint(3, 10)
+    
+    with col1:
+        st.markdown("""
+        <div class="glass-card" style="text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🛰️</div>
+            <p style="margin: 8px 0; font-weight: 700; font-size: 1.3rem; color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.6);">Active</p>
+            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">GPS Tracking</p>
+            <div style="margin-top: 12px;">
+                <span class="status-badge" style="animation: pulse-glow 2s ease-in-out infinite;">● Online</span>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown(f"""
+        <div class="glass-card" style="text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">👥</div>
+            <div class="metric-value" style="font-size: 2.2rem; color: #22d3ee; text-shadow: 0 0 20px rgba(34, 211, 238, 0.6);">{teams_online}</div>
+            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Teams Online</p>
+            <div style="margin-top: 12px;">
+                <span class="status-badge" style="animation: pulse-glow 2s ease-in-out infinite;">● Live</span>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col3:
+        st.markdown(f"""
+        <div class="glass-card" style="text-align: center;">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🚗</div>
+            <div class="metric-value" style="font-size: 2.2rem; color: #f59e0b; text-shadow: 0 0 20px rgba(245, 158, 11, 0.6);">{vehicles_deployed}</div>
+            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Vehicles Deployed</p>
+            <div style="margin-top: 12px;">
+                <span class="status-badge" style="animation: pulse-glow 2s ease-in-out infinite;">● Active</span>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     
@@ -1035,6 +1179,9 @@ def main():
     
     # Hero Section
     render_hero()
+    
+    # University Header
+    render_university_header()
     
     # Status indicator with glassmorphism
     st.markdown(f"""
