@@ -566,6 +566,180 @@ body {
     color: #e2e8f0;
     font-family: 'Inter', sans-serif;
 }
+
+/* ========================================
+   🚨 GLOBAL VISIBILITY OVERRIDES (MANDATORY)
+   ======================================== */
+
+/* 🔥 BUTTONS - Bright Cyan/Blue Gradient with Glow */
+.stButton > button,
+button[kind="primary"],
+button[kind="secondary"] {
+    background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 50%, #0891b2 100%) !important;
+    color: #ffffff !important;
+    border: 2px solid rgba(6, 182, 212, 0.6) !important;
+    border-radius: 12px !important;
+    padding: 14px 32px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4),
+                0 0 30px rgba(6, 182, 212, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    cursor: pointer !important;
+}
+
+.stButton > button:hover,
+button[kind="primary"]:hover,
+button[kind="secondary"]:hover {
+    background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #22d3ee 100%) !important;
+    box-shadow: 0 8px 28px rgba(6, 182, 212, 0.5),
+                0 0 45px rgba(6, 182, 212, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    border-color: rgba(34, 211, 238, 0.8) !important;
+}
+
+.stButton > button:active {
+    transform: translateY(0px) scale(0.98) !important;
+}
+
+/* 🔥 TABS - Dark Background with Clear Borders & Glow */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 16px !important;
+    background: rgba(15, 23, 42, 0.9) !important;
+    border-bottom: none !important;
+    padding: 16px 24px !important;
+    margin-bottom: 48px !important;
+    justify-content: center !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background: rgba(30, 41, 59, 0.8) !important;
+    backdrop-filter: blur(16px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+    border-radius: 28px !important;
+    color: #cbd5e1 !important;
+    padding: 16px 36px !important;
+    font-weight: 700 !important;
+    border: 2px solid rgba(148, 163, 184, 0.4) !important;
+    font-size: 1.1rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    background: rgba(30, 41, 59, 0.95) !important;
+    border-color: rgba(6, 182, 212, 0.5) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(6, 182, 212, 0.25) !important;
+    color: #f0f9ff !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.5) 0%, rgba(8, 145, 178, 0.45) 100%) !important;
+    color: #ffffff !important;
+    border: 3px solid rgba(6, 182, 212, 0.8) !important;
+    border-bottom: 5px solid #22d3ee !important;
+    box-shadow: 0 8px 32px rgba(6, 182, 212, 0.5),
+                0 0 40px rgba(34, 211, 238, 0.8),
+                inset 0 2px 0 rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-3px) scale(1.08) !important;
+    text-shadow: 0 0 25px rgba(6, 182, 212, 0.8), 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* 🔥 INPUTS - Lighter Background with Bright Borders */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stSelectbox > div > div,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    background: rgba(30, 41, 59, 0.95) !important;
+    border: 3px solid rgba(6, 182, 212, 0.5) !important;
+    border-radius: 14px !important;
+    color: #f0f9ff !important;
+    padding: 18px 24px !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) inset, 
+                0 0 0 1px rgba(6, 182, 212, 0.3),
+                0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.stTextInput > div > div > input::placeholder,
+.stTextArea > div > div > textarea::placeholder {
+    color: #94a3b8 !important;
+    font-weight: 500 !important;
+    opacity: 1 !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus,
+.stSelectbox > div > div:focus-within,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: #22d3ee !important;
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.35),
+                0 0 30px rgba(6, 182, 212, 0.4),
+                0 6px 20px rgba(0, 0, 0, 0.4) inset !important;
+    background: rgba(15, 23, 42, 1) !important;
+    color: #ffffff !important;
+    outline: none !important;
+}
+
+/* Input Labels */
+.stTextInput > label,
+.stTextArea > label,
+.stSelectbox > label {
+    color: #e2e8f0 !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    margin-bottom: 8px !important;
+}
+
+/* Select Dropdown */
+.stSelectbox > div > div {
+    background: rgba(30, 41, 59, 0.95) !important;
+    border: 3px solid rgba(6, 182, 212, 0.5) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
+    color: #f0f9ff !important;
+}
+
+.stSelectbox > div > div:hover {
+    border-color: rgba(6, 182, 212, 0.7) !important;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(6, 182, 212, 0.2) !important;
+}
+
+/* File Uploader */
+.stFileUploader {
+    background: rgba(30, 41, 59, 0.7) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 3px dashed rgba(6, 182, 212, 0.4) !important;
+    border-radius: 16px !important;
+    padding: 36px !important;
+    transition: all 0.3s ease !important;
+}
+
+.stFileUploader:hover {
+    border-color: rgba(6, 182, 212, 0.7) !important;
+    background: rgba(30, 41, 59, 0.85) !important;
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.2) !important;
+}
+
+/* ========================================
+   END OF GLOBAL VISIBILITY OVERRIDES
+   ======================================== */
 </style>
 """, unsafe_allow_html=True)
 
@@ -681,11 +855,36 @@ def render_chat_interface(model, api_status):
     </div>
     """, unsafe_allow_html=True)
     
-    # Centered chat input container with glass effect
-    st.markdown('<div style="max-width: 1000px; margin: 0 auto; background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(20px); border-radius: 16px; padding: 32px; border: 2px solid rgba(6, 182, 212, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(6, 182, 212, 0.15);">', unsafe_allow_html=True)
+    # Centered chat input container with glass effect - ENHANCED VISIBILITY
+    st.markdown("""
+    <div style="
+        max-width: 1100px; 
+        margin: 0 auto; 
+        background: rgba(15, 23, 42, 0.9); 
+        backdrop-filter: blur(24px); 
+        -webkit-backdrop-filter: blur(24px);
+        border-radius: 20px; 
+        padding: 40px; 
+        border: 3px solid rgba(6, 182, 212, 0.5); 
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 
+                    0 0 40px rgba(6, 182, 212, 0.25),
+                    inset 0 2px 0 rgba(255, 255, 255, 0.1);
+    ">
+        <p style="
+            text-align: center; 
+            color: #22d3ee; 
+            font-size: 1.15rem; 
+            font-weight: 600; 
+            margin: 0 0 24px 0;
+            text-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+        ">
+            💬 Type your question below
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
     
-    # Chat input
-    col1, col2 = st.columns([6, 1])
+    # Chat input with improved column ratio (85% input, 15% button)
+    col1, col2 = st.columns([5.5, 1])
     
     with col1:
         user_input = st.text_input(
@@ -698,7 +897,7 @@ def render_chat_interface(model, api_status):
     with col2:
         send_button = st.button("📤 Send", use_container_width=True)
     
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('<div style="margin-bottom: 32px;"></div>', unsafe_allow_html=True)
     
     # Process message
     if send_button and user_input.strip():
