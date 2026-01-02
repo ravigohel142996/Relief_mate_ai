@@ -18,14 +18,14 @@ st.set_page_config(
 )
 
 # ----------------------------
-# 🎨 Professional Government-Grade CSS
+# 🎨 FUTURISTIC PREMIUM UI - GLASSMORPHISM + 3D DEPTH
 # ----------------------------
 def inject_custom_css():
     st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
     
-    /* Global Styles */
+    /* Global Styles - Deep Gradient Background */
     * {
         margin: 0;
         padding: 0;
@@ -34,194 +34,343 @@ def inject_custom_css():
     
     .main {
         padding: 0 !important;
-        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-        color: #334155;
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e293b 100%);
+        color: #e2e8f0;
         font-family: 'Inter', sans-serif;
+        position: relative;
+        min-height: 100vh;
     }
     
     .stApp {
-        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e293b 100%);
     }
     
-    /* Header Section - Professional & Clean */
+    /* Animated Background Overlay */
+    .main::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    
+    /* Header Section - Futuristic Command Center */
     .hero-container {
-        background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
-        padding: 40px 40px 32px 40px;
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(14, 116, 144, 0.2) 100%);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(6, 182, 212, 0.2);
+        border-radius: 16px;
+        padding: 48px 40px 40px 40px;
         text-align: left;
-        border-bottom: 2px solid #06b6d4;
-        margin-bottom: 48px;
+        margin: 20px auto 48px auto;
+        max-width: 1400px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 
+                    0 0 100px rgba(6, 182, 212, 0.1) inset;
+        position: relative;
+        z-index: 1;
     }
     
     .hero-title {
-        font-size: 2.2rem;
-        font-weight: 700;
-        margin-bottom: 10px;
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin-bottom: 12px;
         color: #ffffff;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 16px;
+        text-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+        letter-spacing: -0.02em;
     }
     
     .hero-subtitle {
-        font-size: 1rem;
-        margin-bottom: 16px;
-        color: #e0f2fe;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        color: #94a3b8;
         font-weight: 400;
+        letter-spacing: 0.01em;
     }
     
     .status-badge {
         display: inline-block;
-        background: rgba(236, 253, 245, 0.9);
-        color: #059669;
-        padding: 6px 16px;
-        border-radius: 16px;
-        font-size: 0.85rem;
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 0.875rem;
         font-weight: 600;
-        border: 1px solid #a7f3d0;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.2),
+                    0 0 40px rgba(16, 185, 129, 0.1) inset;
+        animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-glow {
+        0%, 100% { 
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2),
+                        0 0 40px rgba(16, 185, 129, 0.1) inset;
+        }
+        50% { 
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.4),
+                        0 0 60px rgba(16, 185, 129, 0.2) inset;
+        }
     }
     
     .emergency-info {
-        margin-top: 16px;
-        padding: 12px 16px;
-        background: rgba(0, 0, 0, 0.15);
-        border-radius: 8px;
+        margin-top: 20px;
+        padding: 16px 20px;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
         border-left: 3px solid #fbbf24;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
     
-    /* Professional Cards */
+    /* Glassmorphism Cards with 3D Depth */
     .glass-card {
-        background: rgba(255, 255, 255, 0.98) !important;
-        border-radius: 10px !important;
-        border: 1px solid #e2e8f0 !important;
-        padding: 24px !important;
-        margin: 20px 0 !important;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
-        color: #334155 !important;
-        transition: all 0.2s ease !important;
+        background: rgba(30, 41, 59, 0.6) !important;
+        backdrop-filter: blur(20px) !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(148, 163, 184, 0.2) !important;
+        padding: 28px !important;
+        margin: 24px 0 !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                    0 0 60px rgba(6, 182, 212, 0.05) inset !important;
+        color: #e2e8f0 !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative !important;
+        z-index: 1 !important;
     }
     
     .glass-card:hover {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-        transform: translateY(-1px) !important;
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5),
+                    0 0 80px rgba(6, 182, 212, 0.1) inset !important;
+        transform: translateY(-4px) !important;
+        border-color: rgba(6, 182, 212, 0.4) !important;
     }
     
-    /* Chat Interface */
+    .glass-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.5), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .glass-card:hover::before {
+        opacity: 1;
+    }
+    
+    /* Chat Interface - Command Console Style */
     .chat-container {
-        background: rgba(255, 255, 255, 0.98) !important;
-        border-radius: 10px !important;
-        padding: 24px !important;
-        border: 1px solid #e2e8f0 !important;
-        margin: 24px 0 !important;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+        background: rgba(30, 41, 59, 0.6) !important;
+        backdrop-filter: blur(20px) !important;
+        border-radius: 16px !important;
+        padding: 28px !important;
+        border: 1px solid rgba(6, 182, 212, 0.2) !important;
+        margin: 28px 0 !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                    0 0 60px rgba(6, 182, 212, 0.05) inset !important;
     }
     
     .chat-message {
-        background: #f8fafc;
-        padding: 14px 16px;
-        border-radius: 8px;
-        margin: 10px 0;
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(10px);
+        padding: 16px 20px;
+        border-radius: 12px;
+        margin: 12px 0;
         border-left: 3px solid #06b6d4;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        transition: all 0.2s ease;
+    }
+    
+    .chat-message:hover {
+        background: rgba(15, 23, 42, 0.8);
+        transform: translateX(4px);
     }
     
     .chat-message strong {
-        color: #0f172a;
+        color: #06b6d4;
+        font-weight: 600;
     }
     
-    /* Professional Buttons */
+    /* Futuristic Buttons with Glow */
     .stButton > button {
-        background: #0891b2 !important;
+        background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%) !important;
         color: white !important;
-        border: none !important;
-        border-radius: 8px !important;
-        padding: 10px 24px !important;
+        border: 1px solid rgba(6, 182, 212, 0.5) !important;
+        border-radius: 12px !important;
+        padding: 12px 28px !important;
         font-weight: 600 !important;
         font-size: 0.95rem !important;
-        transition: all 0.2s ease !important;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08) !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 0 4px 16px rgba(6, 182, 212, 0.3),
+                    0 0 40px rgba(6, 182, 212, 0.1) inset !important;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+    
+    .stButton > button::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+    
+    .stButton > button:hover::before {
+        width: 300px;
+        height: 300px;
     }
     
     .stButton > button:hover {
-        background: #0e7490 !important;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12) !important;
-        transform: translateY(-1px) !important;
+        background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%) !important;
+        box-shadow: 0 6px 24px rgba(6, 182, 212, 0.5),
+                    0 0 60px rgba(6, 182, 212, 0.2) inset !important;
+        transform: translateY(-2px) !important;
     }
     
-    /* Text Input */
+    .stButton > button:active {
+        transform: translateY(0px) scale(0.98) !important;
+    }
+    
+    /* Text Input - Tactile Console Feel */
     .stTextInput > div > div > input,
     .stTextArea > div > div > textarea {
-        background: white !important;
-        border: 1px solid #cbd5e1 !important;
-        border-radius: 8px !important;
-        color: #1e293b !important;
-        padding: 12px !important;
+        background: rgba(15, 23, 42, 0.8) !important;
+        border: 1px solid rgba(100, 116, 139, 0.3) !important;
+        border-radius: 12px !important;
+        color: #e2e8f0 !important;
+        padding: 14px 16px !important;
         font-size: 1rem !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) inset !important;
     }
     
     .stTextInput > div > div > input:focus,
     .stTextArea > div > div > textarea:focus {
         border-color: #06b6d4 !important;
-        box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1) !important;
+        box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2),
+                    0 4px 16px rgba(0, 0, 0, 0.3) inset !important;
+        background: rgba(15, 23, 42, 0.9) !important;
     }
     
     .stSelectbox > div > div {
-        background: white !important;
-        border: 1px solid #cbd5e1 !important;
-        border-radius: 8px !important;
+        background: rgba(15, 23, 42, 0.8) !important;
+        border: 1px solid rgba(100, 116, 139, 0.3) !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
     }
     
-    /* Metrics */
+    .stSelectbox > div > div:hover {
+        border-color: rgba(6, 182, 212, 0.5) !important;
+    }
+    
+    /* Metrics - Command Center Stats */
     .metric-container {
-        background: rgba(255, 255, 255, 0.98);
-        border-radius: 10px;
-        padding: 20px;
+        background: rgba(30, 41, 59, 0.6);
+        backdrop-filter: blur(20px);
+        border-radius: 16px;
+        padding: 28px 24px;
         text-align: center;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-        transition: all 0.2s ease;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                    0 0 60px rgba(6, 182, 212, 0.05) inset;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .metric-container::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #06b6d4, transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
     
     .metric-container:hover {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transform: translateY(-1px);
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5),
+                    0 0 80px rgba(6, 182, 212, 0.1) inset;
+        transform: translateY(-4px);
+        border-color: rgba(6, 182, 212, 0.4);
+    }
+    
+    .metric-container:hover::after {
+        opacity: 1;
     }
     
     .metric-value {
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: #0f172a;
-        margin-bottom: 6px;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 8px;
+        text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        letter-spacing: -0.02em;
     }
     
     .metric-label {
         font-size: 0.875rem;
-        color: #64748b;
+        color: #94a3b8;
         font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
     
-    /* Tab styling */
+    /* Tab Styling - Floating Glass Pills */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 10px;
+        gap: 12px;
         background: transparent;
         border-bottom: none;
         padding-bottom: 0;
-        margin-bottom: 32px;
+        margin-bottom: 40px;
+        justify-content: center;
     }
     
     .stTabs [data-baseweb="tab"] {
-        background: #f1f5f9;
-        border-radius: 20px;
-        color: #64748b;
-        padding: 10px 24px;
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        color: #94a3b8;
+        padding: 12px 28px;
         font-weight: 600;
-        border: 1px solid #e2e8f0;
+        border: 1px solid rgba(148, 163, 184, 0.2);
         font-size: 0.95rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .stTabs [data-baseweb="tab"]:hover {
+        background: rgba(30, 41, 59, 0.7);
+        border-color: rgba(6, 182, 212, 0.3);
+        transform: translateY(-2px);
     }
     
     .stTabs [aria-selected="true"] {
-        background: #0891b2 !important;
-        color: white !important;
-        border: 1px solid #0891b2 !important;
-        box-shadow: 0 2px 4px rgba(8, 145, 178, 0.2) !important;
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(8, 145, 178, 0.3) 100%) !important;
+        color: #06b6d4 !important;
+        border: 1px solid rgba(6, 182, 212, 0.5) !important;
+        box-shadow: 0 4px 24px rgba(6, 182, 212, 0.4),
+                    0 0 40px rgba(6, 182, 212, 0.1) inset !important;
+        transform: translateY(-2px) scale(1.05) !important;
+        text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
     }
     
     /* Hide Streamlit branding */
@@ -229,75 +378,151 @@ def inject_custom_css():
     footer {visibility: hidden;}
     header {visibility: hidden;}
     
-    /* Improved spacing */
+    /* Improved spacing - Max Width Container */
     .block-container {
         padding-top: 2rem;
         padding-bottom: 3rem;
         max-width: 1400px;
+        position: relative;
+        z-index: 1;
     }
     
     h1, h2, h3 {
-        color: #0f172a;
+        color: #ffffff;
         font-weight: 700;
+        letter-spacing: -0.02em;
     }
     
     h2 {
-        margin-bottom: 8px;
+        margin-bottom: 12px;
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
     }
     
     p, label {
-        color: #475569;
+        color: #94a3b8;
+        line-height: 1.6;
     }
     
-    /* Status badges */
+    /* Status badges with Glow */
     .status-critical {
-        background: #fef2f2;
-        color: #dc2626;
-        padding: 4px 12px;
-        border-radius: 12px;
+        background: rgba(220, 38, 38, 0.15);
+        color: #ef4444;
+        padding: 6px 14px;
+        border-radius: 16px;
         font-weight: 600;
         font-size: 0.85rem;
-        border: 1px solid #fecaca;
+        border: 1px solid rgba(220, 38, 38, 0.3);
+        box-shadow: 0 0 20px rgba(220, 38, 38, 0.3),
+                    0 0 40px rgba(220, 38, 38, 0.1) inset;
+        animation: pulse-critical 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-critical {
+        0%, 100% { 
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.3),
+                        0 0 40px rgba(220, 38, 38, 0.1) inset;
+        }
+        50% { 
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.5),
+                        0 0 60px rgba(220, 38, 38, 0.2) inset;
+        }
     }
     
     .status-active {
-        background: #fef3c7;
-        color: #d97706;
-        padding: 4px 12px;
-        border-radius: 12px;
+        background: rgba(217, 119, 6, 0.15);
+        color: #f59e0b;
+        padding: 6px 14px;
+        border-radius: 16px;
         font-weight: 600;
         font-size: 0.85rem;
-        border: 1px solid #fde68a;
+        border: 1px solid rgba(217, 119, 6, 0.3);
+        box-shadow: 0 0 20px rgba(217, 119, 6, 0.2),
+                    0 0 40px rgba(217, 119, 6, 0.1) inset;
     }
     
     .status-resolved {
-        background: #ecfdf5;
-        color: #059669;
-        padding: 4px 12px;
-        border-radius: 12px;
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+        padding: 6px 14px;
+        border-radius: 16px;
         font-weight: 600;
         font-size: 0.85rem;
-        border: 1px solid #a7f3d0;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.2),
+                    0 0 40px rgba(16, 185, 129, 0.1) inset;
     }
     
     .status-monitoring {
-        background: #eff6ff;
-        color: #2563eb;
-        padding: 4px 12px;
-        border-radius: 12px;
+        background: rgba(37, 99, 235, 0.15);
+        color: #3b82f6;
+        padding: 6px 14px;
+        border-radius: 16px;
         font-weight: 600;
         font-size: 0.85rem;
-        border: 1px solid #bfdbfe;
+        border: 1px solid rgba(37, 99, 235, 0.3);
+        box-shadow: 0 0 20px rgba(37, 99, 235, 0.2),
+                    0 0 40px rgba(37, 99, 235, 0.1) inset;
     }
     
     /* Responsive */
     @media (max-width: 768px) {
         .hero-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
         }
         .hero-subtitle {
             font-size: 1rem;
         }
+    }
+    
+    /* Streamlit Native Components Styling */
+    .stMetric {
+        background: rgba(30, 41, 59, 0.6);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    
+    .stMetric label {
+        color: #94a3b8 !important;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    
+    .stMetric [data-testid="stMetricValue"] {
+        color: #ffffff !important;
+        font-weight: 800;
+        text-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+    }
+    
+    /* File Uploader */
+    .stFileUploader {
+        background: rgba(30, 41, 59, 0.6);
+        backdrop-filter: blur(20px);
+        border: 2px dashed rgba(100, 116, 139, 0.3);
+        border-radius: 16px;
+        padding: 32px;
+        transition: all 0.3s ease;
+    }
+    
+    .stFileUploader:hover {
+        border-color: rgba(6, 182, 212, 0.5);
+        background: rgba(30, 41, 59, 0.8);
+    }
+    
+    /* Data Frame */
+    .stDataFrame {
+        background: rgba(30, 41, 59, 0.6);
+        backdrop-filter: blur(20px);
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(148, 163, 184, 0.2);
     }
     </style>
     """, unsafe_allow_html=True)
@@ -348,7 +573,7 @@ def generate_sample_data():
     return reports, analytics
 
 # ----------------------------
-# 🏠 Hero Section
+# 🏠 Hero Section - Futuristic Command Center
 # ----------------------------
 def render_hero():
     st.markdown("""
@@ -356,15 +581,15 @@ def render_hero():
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
             <div>
                 <h1 class="hero-title">
-                    <span style="font-size: 1.8rem;">🌍</span> ReliefMate AI
+                    <span style="font-size: 2rem;">🌍</span> ReliefMate AI
                 </h1>
                 <p class="hero-subtitle">Advanced Disaster Relief Management System</p>
-                <span class="status-badge">System Operational</span>
+                <span class="status-badge">● System Operational</span>
             </div>
         </div>
-        <div class="emergency-info" style="margin-top: 16px;">
-            <strong style="color: #fbbf24;">Emergency Hotlines:</strong>
-            <span style="color: #e5e7eb; margin-left: 16px;">
+        <div class="emergency-info" style="margin-top: 20px;">
+            <strong style="color: #fbbf24;">⚡ Emergency Hotlines:</strong>
+            <span style="color: #cbd5e1; margin-left: 16px;">
                 Police: 112  |  Medical: 108  |  Fire: 101
             </span>
         </div>
@@ -372,27 +597,27 @@ def render_hero():
     """, unsafe_allow_html=True)
 
 # ----------------------------
-# 💬 Enhanced Chat Interface
+# 💬 Enhanced Chat Interface - Command Console
 # ----------------------------
 def render_chat_interface(model, api_status):
-    st.markdown("## AI Assistant")
-    st.markdown('<p style="color: #64748b; margin-bottom: 32px;">Get instant guidance on emergency procedures, resource allocation, and disaster response protocols</p>', unsafe_allow_html=True)
+    st.markdown("## 🤖 AI Assistant")
+    st.markdown('<p style="color: #94a3b8; margin-bottom: 32px; text-align: center;">Get instant guidance on emergency procedures, resource allocation, and disaster response protocols</p>', unsafe_allow_html=True)
     
     # Initialize chat history
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = []
     
-    # System Ready indicator
+    # System Ready indicator with glow
     st.markdown("""
-    <div style="text-align: center; margin-bottom: 24px;">
-        <span style="background: #ecfdf5; color: #059669; padding: 6px 16px; border-radius: 16px; font-size: 0.85rem; font-weight: 600; border: 1px solid #a7f3d0;">
-            ● System Ready
+    <div style="text-align: center; margin-bottom: 32px;">
+        <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 8px 20px; border-radius: 20px; font-size: 0.875rem; font-weight: 600; border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 0 20px rgba(16, 185, 129, 0.3), 0 0 40px rgba(16, 185, 129, 0.1) inset; animation: pulse-glow 2s ease-in-out infinite;">
+            ● System Online
         </span>
     </div>
     """, unsafe_allow_html=True)
     
-    # Centered chat input container
-    st.markdown('<div style="max-width: 800px; margin: 0 auto;">', unsafe_allow_html=True)
+    # Centered chat input container with glass effect
+    st.markdown('<div style="max-width: 900px; margin: 0 auto; background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(20px); border-radius: 16px; padding: 24px; border: 1px solid rgba(148, 163, 184, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);">', unsafe_allow_html=True)
     
     # Chat input
     col1, col2 = st.columns([5, 1])
@@ -447,41 +672,41 @@ def render_chat_interface(model, api_status):
     
     # Display chat history
     if st.session_state.chat_history:
-        st.markdown('<div style="max-width: 900px; margin: 24px auto;">', unsafe_allow_html=True)
-        st.markdown("### Conversation History")
+        st.markdown('<div style="max-width: 1000px; margin: 32px auto;">', unsafe_allow_html=True)
+        st.markdown("### 📋 Mission Briefing")
         for message in reversed(st.session_state.chat_history[-10:]):  # Show last 10 messages
             if message["role"] == "user":
                 st.markdown(f"""
-                <div class="chat-message" style="border-left: 3px solid #dc2626; background: #fef2f2;">
-                    <strong style="color: #dc2626;">You:</strong><br>
-                    <span style="color: #334155;">{message["content"]}</span>
+                <div class="chat-message" style="border-left: 3px solid #ef4444; background: rgba(220, 38, 38, 0.1);">
+                    <strong style="color: #ef4444;">You:</strong><br>
+                    <span style="color: #e2e8f0;">{message["content"]}</span>
                 </div>
                 """, unsafe_allow_html=True)
             else:
                 st.markdown(f"""
-                <div class="chat-message" style="border-left: 3px solid #06b6d4; background: #ecfeff;">
-                    <strong style="color: #0891b2;">ReliefMate AI:</strong><br>
-                    <span style="color: #334155;">{message["content"]}</span>
+                <div class="chat-message" style="border-left: 3px solid #06b6d4; background: rgba(6, 182, 212, 0.1);">
+                    <strong style="color: #06b6d4;">ReliefMate AI:</strong><br>
+                    <span style="color: #e2e8f0;">{message["content"]}</span>
                 </div>
                 """, unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
     else:
         st.markdown("""
-        <div style="text-align: center; padding: 60px 40px; background: white; border-radius: 10px; margin: 24px auto; max-width: 600px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);">
-            <div style="font-size: 3rem; margin-bottom: 16px;">💬</div>
-            <h3 style="color: #0f172a; margin-bottom: 12px;">Assistant Ready</h3>
-            <p style="color: #64748b;">Ask me about emergency procedures, disaster preparedness, or resource management</p>
+        <div style="text-align: center; padding: 80px 40px; background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); border-radius: 16px; margin: 32px auto; max-width: 700px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); border: 1px solid rgba(148, 163, 184, 0.2);">
+            <div style="font-size: 3.5rem; margin-bottom: 20px;">💬</div>
+            <h3 style="color: #ffffff; margin-bottom: 16px; font-weight: 700;">Assistant Ready</h3>
+            <p style="color: #94a3b8;">Ask me about emergency procedures, disaster preparedness, or resource management</p>
         </div>
         """, unsafe_allow_html=True)
 
 # ----------------------------
-# 📊 Relief Reports Dashboard
+# 📊 Relief Reports Dashboard - 3D Glass Cards
 # ----------------------------
 def render_reports_dashboard(reports):
-    st.markdown("## Live Relief Operations")
-    st.markdown('<p style="color: #64748b; margin-bottom: 32px;">Real-time monitoring of active disaster response operations</p>', unsafe_allow_html=True)
+    st.markdown("## 🚨 Live Relief Operations")
+    st.markdown('<p style="color: #94a3b8; margin-bottom: 32px; text-align: center;">Real-time monitoring of active disaster response operations</p>', unsafe_allow_html=True)
     
-    # Status summary
+    # Status summary with glowing metrics
     col1, col2, col3, col4 = st.columns(4)
     
     critical_count = len([r for r in reports if "Critical" in r["status"]])
@@ -492,7 +717,7 @@ def render_reports_dashboard(reports):
     with col1:
         st.markdown("""
         <div class="metric-container">
-            <div class="metric-value" style="color: #dc2626;">{}</div>
+            <div class="metric-value" style="color: #ef4444; text-shadow: 0 0 25px rgba(239, 68, 68, 0.6);">{}</div>
             <div class="metric-label">Critical Cases</div>
         </div>
         """.format(critical_count), unsafe_allow_html=True)
@@ -500,7 +725,7 @@ def render_reports_dashboard(reports):
     with col2:
         st.markdown("""
         <div class="metric-container">
-            <div class="metric-value" style="color: #d97706;">{}</div>
+            <div class="metric-value" style="color: #f59e0b; text-shadow: 0 0 25px rgba(245, 158, 11, 0.6);">{}</div>
             <div class="metric-label">Active Operations</div>
         </div>
         """.format(active_count), unsafe_allow_html=True)
@@ -508,7 +733,7 @@ def render_reports_dashboard(reports):
     with col3:
         st.markdown("""
         <div class="metric-container">
-            <div class="metric-value" style="color: #059669;">{}</div>
+            <div class="metric-value" style="color: #10b981; text-shadow: 0 0 25px rgba(16, 185, 129, 0.6);">{}</div>
             <div class="metric-label">Resolved Cases</div>
         </div>
         """.format(resolved_count), unsafe_allow_html=True)
@@ -516,37 +741,33 @@ def render_reports_dashboard(reports):
     with col4:
         st.markdown("""
         <div class="metric-container">
-            <div class="metric-value" style="color: #2563eb;">{}</div>
+            <div class="metric-value" style="color: #3b82f6; text-shadow: 0 0 25px rgba(59, 130, 246, 0.6);">{}</div>
             <div class="metric-label">Under Monitoring</div>
         </div>
         """.format(monitoring_count), unsafe_allow_html=True)
     
-    # Detailed reports
-    st.markdown("### Operations Report")
+    # Detailed reports with glowing chips
+    st.markdown("### 📍 Operations Report")
     st.markdown("")  # spacing
     
     for i, report in enumerate(reports):
-        # Determine status styling
+        # Determine status styling with glow
         if "Critical" in report["status"]:
-            status_bg = "#fef2f2"
-            status_color = "#dc2626"
-            status_border = "#fecaca"
+            status_class = "status-critical"
             icon = "🚨"
+            card_glow = "0 0 40px rgba(220, 38, 38, 0.2)"
         elif "Active" in report["status"]:
-            status_bg = "#fef3c7"
-            status_color = "#d97706"
-            status_border = "#fde68a"
+            status_class = "status-active"
             icon = "⚠️"
+            card_glow = "0 0 40px rgba(245, 158, 11, 0.15)"
         elif "Resolved" in report["status"]:
-            status_bg = "#ecfdf5"
-            status_color = "#059669"
-            status_border = "#a7f3d0"
+            status_class = "status-resolved"
             icon = "✅"
+            card_glow = "0 0 40px rgba(16, 185, 129, 0.15)"
         else:  # Monitoring
-            status_bg = "#eff6ff"
-            status_color = "#2563eb"
-            status_border = "#bfdbfe"
+            status_class = "status-monitoring"
             icon = "📋"
+            card_glow = "0 0 40px rgba(59, 130, 246, 0.15)"
         
         disaster_icons = {
             "Flood": "🌊",
@@ -558,29 +779,29 @@ def render_reports_dashboard(reports):
         disaster_icon = disaster_icons.get(report["type"], "⚠️")
         
         st.markdown(f"""
-        <div class="glass-card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-                <h3 style="color: #0f172a; margin: 0; display: flex; align-items: center; gap: 8px;">
+        <div class="glass-card" style="box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), {card_glow}, 0 0 60px rgba(6, 182, 212, 0.05) inset !important;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                <h3 style="color: #ffffff; margin: 0; display: flex; align-items: center; gap: 10px; font-size: 1.3rem; font-weight: 700;">
                     {disaster_icon} {report["location"]} • {report["type"]}
                 </h3>
-                <span style="background: {status_bg}; color: {status_color}; padding: 6px 14px; border-radius: 12px; font-weight: 600; font-size: 0.85rem; border: 1px solid {status_border};">
+                <span class="{status_class}">
                     {report["status"].replace("🚨 ", "").replace("🔥 ", "").replace("⚠️ ", "").replace("✅ ", "").replace("📋 ", "")}
                 </span>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 8px; color: #475569;">
-                <p style="margin: 0;"><strong style="color: #334155;">Requirements:</strong> {report["needs"]}</p>
-                <p style="margin: 0; color: #64748b;"><strong style="color: #334155;">Team:</strong> {report["team"]}</p>
-                <p style="margin: 0; color: #94a3b8; font-size: 0.85rem;">Updated: {datetime.datetime.now().strftime('%H:%M')} IST</p>
+            <div style="display: flex; flex-direction: column; gap: 12px; color: #cbd5e1;">
+                <p style="margin: 0;"><strong style="color: #94a3b8;">📦 Requirements:</strong> <span style="color: #e2e8f0;">{report["needs"]}</span></p>
+                <p style="margin: 0; color: #94a3b8;"><strong style="color: #94a3b8;">👥 Team:</strong> <span style="color: #cbd5e1;">{report["team"]}</span></p>
+                <p style="margin: 0; color: #64748b; font-size: 0.85rem;">🕐 Updated: {datetime.datetime.now().strftime('%H:%M')} IST</p>
             </div>
         </div>
         """, unsafe_allow_html=True)
 
 # ----------------------------
-# 📈 Analytics Dashboard
+# 📈 Analytics Dashboard - Command Center
 # ----------------------------
 def render_analytics(analytics_data):
-    st.markdown("## Performance Analytics")
-    st.markdown('<p style="color: #64748b; margin-bottom: 32px;">Data-driven insights for operational efficiency</p>', unsafe_allow_html=True)
+    st.markdown("## 📊 Performance Analytics")
+    st.markdown('<p style="color: #94a3b8; margin-bottom: 32px; text-align: center;">Data-driven insights for operational efficiency</p>', unsafe_allow_html=True)
     
     # Create DataFrame
     df = pd.DataFrame({
@@ -590,9 +811,9 @@ def render_analytics(analytics_data):
         'Active Cases': analytics_data['active']
     })
     
-    # Charts with better styling
-    st.markdown("### 7-Day Operations Trend")
-    st.markdown('<div style="background: white; padding: 24px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); margin-bottom: 32px;">', unsafe_allow_html=True)
+    # Charts with better styling - Embedded in glass panels
+    st.markdown("### 📈 7-Day Operations Trend")
+    st.markdown('<div style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); padding: 28px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); margin-bottom: 32px; border: 1px solid rgba(148, 163, 184, 0.2);">', unsafe_allow_html=True)
     
     # Line chart using Streamlit
     chart_data = df.set_index('Date')[['New Requests', 'Resolved Cases', 'Active Cases']]
@@ -600,20 +821,20 @@ def render_analytics(analytics_data):
     st.markdown('</div>', unsafe_allow_html=True)
     
     # Bar chart for comparison
-    st.markdown("### Daily Comparison")
-    st.markdown('<div style="background: white; padding: 24px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); margin-bottom: 32px;">', unsafe_allow_html=True)
+    st.markdown("### 📊 Daily Comparison")
+    st.markdown('<div style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); padding: 28px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); margin-bottom: 32px; border: 1px solid rgba(148, 163, 184, 0.2);">', unsafe_allow_html=True)
     st.bar_chart(chart_data, use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
     
-    # Summary statistics
-    st.markdown("### Key Metrics")
+    # Summary statistics with neon underlines
+    st.markdown("### 💎 Key Metrics")
     col1, col2, col3 = st.columns(3)
     
     with col1:
         avg_requests = sum(analytics_data['requests']) // 7
         st.markdown(f"""
         <div class="glass-card" style="text-align: center;">
-            <div style="font-size: 2rem; margin-bottom: 8px;">📈</div>
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">📈</div>
             <div class="metric-value">{avg_requests}</div>
             <div class="metric-label">Avg Daily Requests</div>
         </div>
@@ -623,7 +844,7 @@ def render_analytics(analytics_data):
         total_resolved = sum(analytics_data['resolved'])
         st.markdown(f"""
         <div class="glass-card" style="text-align: center;">
-            <div style="font-size: 2rem; margin-bottom: 8px;">✅</div>
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">✅</div>
             <div class="metric-value">{total_resolved}</div>
             <div class="metric-label">Total Resolved</div>
         </div>
@@ -633,14 +854,14 @@ def render_analytics(analytics_data):
         resolution_rate = round((total_resolved / sum(analytics_data['requests'])) * 100, 1)
         st.markdown(f"""
         <div class="glass-card" style="text-align: center;">
-            <div style="font-size: 2rem; margin-bottom: 8px;">🎯</div>
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🎯</div>
             <div class="metric-value">{resolution_rate}%</div>
             <div class="metric-label">Resolution Rate</div>
         </div>
         """, unsafe_allow_html=True)
     
     # Additional metrics using Streamlit metrics
-    st.markdown("### Key Indicators")
+    st.markdown("### 🎯 Key Indicators")
     
     col1, col2, col3, col4 = st.columns(4)
     
@@ -675,18 +896,20 @@ def render_analytics(analytics_data):
         )
 
 # ----------------------------
-# 🛠️ Admin Panel
+# 🛠️ Admin Panel - Pro Tool Feel
 # ----------------------------
 def render_admin_panel():
-    st.markdown("## Administration Panel")
-    st.markdown('<p style="color: #64748b; margin-bottom: 32px;">Manage relief operations and system configuration</p>', unsafe_allow_html=True)
+    st.markdown("## 🛠️ Administration Panel")
+    st.markdown('<p style="color: #94a3b8; margin-bottom: 32px; text-align: center;">Manage relief operations and system configuration</p>', unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     
     with col1:
         st.markdown("""
         <div class="glass-card">
-            <h3 style="margin-bottom: 20px;">Submit New Report</h3>
+            <h3 style="margin-bottom: 24px; color: #ffffff; display: flex; align-items: center; gap: 10px;">
+                📝 Submit New Report
+            </h3>
         </div>
         """, unsafe_allow_html=True)
         
@@ -702,14 +925,16 @@ def render_admin_panel():
     with col2:
         st.markdown("""
         <div class="glass-card">
-            <h3 style="margin-bottom: 20px;">Bulk Data Upload</h3>
+            <h3 style="margin-bottom: 24px; color: #ffffff; display: flex; align-items: center; gap: 10px;">
+                📁 Bulk Data Upload
+            </h3>
         </div>
         """, unsafe_allow_html=True)
         
         st.markdown("""
-        <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 30px; text-align: center; margin-bottom: 20px;">
-            <div style="font-size: 2rem; margin-bottom: 12px; color: #64748b;">📁</div>
-            <p style="color: #64748b; margin: 0;">Drop CSV file or click to browse</p>
+        <div style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 2px dashed rgba(100, 116, 139, 0.4); border-radius: 16px; padding: 40px; text-align: center; margin-bottom: 24px; transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);">
+            <div style="font-size: 2.5rem; margin-bottom: 16px; color: #06b6d4;">📁</div>
+            <p style="color: #94a3b8; margin: 0; font-weight: 500;">Drop CSV file or click to browse</p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -728,44 +953,44 @@ def render_admin_panel():
             except Exception as e:
                 st.error(f"❌ Error processing file: {str(e)}")
     
-    # System Status Section
-    st.markdown("### System Status")
+    # System Status Section with glowing indicators
+    st.markdown("### 🔧 System Status")
     
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
         st.markdown("""
         <div class="glass-card" style="text-align: center;">
-            <div style="font-size: 2rem; margin-bottom: 8px;">🟢</div>
-            <p style="margin: 0; font-weight: 600; color: #059669;">Operational</p>
-            <p style="margin: 0; font-size: 0.85rem; color: #64748b;">System Status</p>
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🟢</div>
+            <p style="margin: 0; font-weight: 600; color: #10b981; text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);">Operational</p>
+            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">System Status</p>
         </div>
         """, unsafe_allow_html=True)
     
     with col2:
         st.markdown("""
         <div class="glass-card" style="text-align: center;">
-            <div style="font-size: 2rem; margin-bottom: 8px;">🟢</div>
-            <p style="margin: 0; font-weight: 600; color: #059669;">Connected</p>
-            <p style="margin: 0; font-size: 0.85rem; color: #64748b;">API Status</p>
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🟢</div>
+            <p style="margin: 0; font-weight: 600; color: #10b981; text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);">Connected</p>
+            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">API Status</p>
         </div>
         """, unsafe_allow_html=True)
     
     with col3:
         st.markdown("""
         <div class="glass-card" style="text-align: center;">
-            <div style="font-size: 2rem; margin-bottom: 8px;">🟢</div>
-            <p style="margin: 0; font-weight: 600; color: #059669;">Online</p>
-            <p style="margin: 0; font-size: 0.85rem; color: #64748b;">Database</p>
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🟢</div>
+            <p style="margin: 0; font-weight: 600; color: #10b981; text-shadow: 0 0 15px rgba(16, 185, 129, 0.5);">Online</p>
+            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">Database</p>
         </div>
         """, unsafe_allow_html=True)
     
     with col4:
         st.markdown("""
         <div class="glass-card" style="text-align: center;">
-            <div style="font-size: 2rem; margin-bottom: 8px;">⚡</div>
-            <p style="margin: 0; font-weight: 600; color: #0ea5e9;">&lt;2s</p>
-            <p style="margin: 0; font-size: 0.85rem; color: #64748b;">Response Time</p>
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">⚡</div>
+            <p style="margin: 0; font-weight: 600; color: #06b6d4; text-shadow: 0 0 15px rgba(6, 182, 212, 0.5);">&lt;2s</p>
+            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">Response Time</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -785,17 +1010,17 @@ def main():
     # Hero Section
     render_hero()
     
-    # Status indicator
+    # Status indicator with glassmorphism
     st.markdown(f"""
-    <div style="text-align: center; margin: 24px 0 32px 0;">
-        <span style="background: rgba(255, 255, 255, 0.98); padding: 8px 20px; border-radius: 8px; border: 1px solid #e2e8f0; color: #475569; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08); font-size: 0.9rem;">
-            API Status: {api_status}
+    <div style="text-align: center; margin: 32px 0 40px 0;">
+        <span style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(20px); padding: 10px 24px; border-radius: 12px; border: 1px solid rgba(148, 163, 184, 0.2); color: #94a3b8; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); font-size: 0.9rem;">
+            ⚡ API Status: {api_status}
         </span>
     </div>
     """, unsafe_allow_html=True)
     
     # Main Navigation Tabs
-    tab1, tab2, tab3, tab4 = st.tabs(["AI Assistant", "Relief Reports", "Analytics", "Admin Panel"])
+    tab1, tab2, tab3, tab4 = st.tabs(["🤖 AI Assistant", "🚨 Relief Reports", "📊 Analytics", "🛠️ Admin Panel"])
     
     with tab1:
         render_chat_interface(model, api_status)
@@ -809,11 +1034,11 @@ def main():
     with tab4:
         render_admin_panel()
     
-    # Footer
+    # Footer - Minimal & Professional
     st.markdown("""
-    <div style="text-align: center; margin-top: 60px; padding: 24px; border-top: 1px solid #e2e8f0;">
-        <p style="color: #94a3b8; margin: 0; font-size: 0.875rem;">
-            © 2025 ReliefMate AI • Emergency Hotline: 112 (Police) | 108 (Medical) | 101 (Fire)
+    <div style="text-align: center; margin-top: 80px; padding: 32px; border-top: 1px solid rgba(148, 163, 184, 0.2); background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(10px);">
+        <p style="color: #64748b; margin: 0; font-size: 0.875rem; font-weight: 500;">
+            © 2025 ReliefMate AI • Emergency Hotline: <span style="color: #06b6d4;">112 (Police) | 108 (Medical) | 101 (Fire)</span>
         </p>
     </div>
     """, unsafe_allow_html=True)
