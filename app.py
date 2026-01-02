@@ -1524,66 +1524,23 @@ def main():
     with tab4:
         render_admin_panel()
     
-    # Footer - Professional with University Info
-    st.markdown("""
-    <div style="
-        position: relative;
-        margin-top: 100px;
-        padding: 40px 32px 32px 32px;
-        border-top: 2px solid rgba(6, 182, 212, 0.2);
-        background: rgba(15, 23, 42, 0.8);
-        backdrop-filter: blur(20px) saturate(180%);
-        -webkit-backdrop-filter: blur(20px) saturate(180%);
-        border-radius: 16px 16px 0 0;
-        box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    ">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <!-- University Info -->
-            <div style="text-align: center; margin-bottom: 24px;">
-                <p style="color: #ffffff; font-size: 1.1rem; font-weight: 700; margin: 0 0 8px 0; letter-spacing: 0.02em;">
-                    🏫 Marwadi University
-                </p>
-                <p style="color: #94a3b8; font-size: 0.95rem; margin: 0 0 6px 0; font-weight: 500;">
-                    📘 Department: Computer Science & Engineering (AI & ML)
-                </p>
-                <p style="color: #cbd5e1; font-size: 0.9rem; margin: 0; font-weight: 500;">
-                    👨‍🎓 Student: <span style="color: #22d3ee;">Ravi Gohel N.</span> (2nd Year)
-                </p>
-                <p style="color: #94a3b8; font-size: 0.85rem; margin: 8px 0 0 0;">
-                    📧 Email: <a href="mailto:ravi.n.gohel811@gmail.com" style="color: #06b6d4; text-decoration: none;">ravi.n.gohel811@gmail.com</a>
-                </p>
-            </div>
-            
-            <!-- Emergency Numbers -->
-            <div style="
-                text-align: center;
-                padding: 20px 24px;
-                background: rgba(220, 38, 38, 0.12);
-                border: 1.5px solid rgba(220, 38, 38, 0.3);
-                border-radius: 12px;
-                margin-bottom: 20px;
-                box-shadow: 0 4px 16px rgba(220, 38, 38, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            ">
-                <p style="color: #ef4444; font-weight: 700; font-size: 1rem; margin: 0 0 8px 0; text-shadow: 0 0 10px rgba(239, 68, 68, 0.4);">
-                    ⚠️ Emergency Numbers
-                </p>
-                <p style="color: #fca5a5; font-size: 1.1rem; font-weight: 600; margin: 0; letter-spacing: 0.05em;">
-                    🚔 112 (Police) | 🚑 108 (Medical) | 🚒 101 (Fire)
-                </p>
-            </div>
-            
-            <!-- Copyright -->
-            <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(148, 163, 184, 0.15);">
-                <p style="color: #64748b; margin: 0; font-size: 0.85rem; font-weight: 500;">
-                    © 2025 ReliefMate AI • Built for State-Level Buildathon
-                </p>
-                <p style="color: #475569; margin: 8px 0 0 0; font-size: 0.8rem;">
-                    Advanced Disaster Relief Management System
-                </p>
-            </div>
+    # Footer - Professional and Clean
+    st.html("""
+    <div style="margin-top: 80px; padding: 48px 24px; text-align: center; background: rgba(15, 23, 42, 0.9); border-radius: 16px; border: 2px solid rgba(6, 182, 212, 0.2);">
+        <p style="color: #ffffff; font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">🏫 Marwadi University</p>
+        <p style="color: #cbd5e1; font-size: 1rem; margin-bottom: 4px;">📘 Department: Computer Science & Engineering (AI & ML)</p>
+        <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 4px;">👨‍🎓 Student: <span style="color: #22d3ee;">Ravi Gohel N.</span> (2nd Year)</p>
+        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 32px;">📧 Email: <a href="mailto:ravi.n.gohel811@gmail.com" style="color: #06b6d4; text-decoration: none;">ravi.n.gohel811@gmail.com</a></p>
+        
+        <div style="background: rgba(220, 38, 38, 0.15); border: 2px solid rgba(220, 38, 38, 0.4); border-radius: 12px; padding: 20px; margin: 24px auto; max-width: 600px;">
+            <p style="color: #ef4444; font-weight: 700; font-size: 1.1rem; margin-bottom: 8px;">🚨 Emergency Numbers</p>
+            <p style="color: #fca5a5; font-size: 1.15rem; font-weight: 600; margin: 0;">🚔 112 | 🚑 108 | 🚒 101</p>
         </div>
+        
+        <p style="color: #64748b; font-size: 0.9rem; margin-top: 32px; margin-bottom: 4px;">© 2025 ReliefMate AI • Built for State-Level Buildathon</p>
+        <p style="color: #475569; font-size: 0.85rem; margin: 0;">Advanced Disaster Relief Management System</p>
     </div>
-    """, unsafe_allow_html=True)
+    """)
 
 if __name__ == "__main__":
     main()
