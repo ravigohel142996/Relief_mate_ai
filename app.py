@@ -608,20 +608,15 @@ def generate_sample_data():
 # ----------------------------
 def render_hero():
     st.markdown("""
-    <div class="hero-container">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-            <div>
-                <h1 class="hero-title">
-                    <span style="font-size: 2rem;">🌍</span> ReliefMate AI
-                </h1>
-                <p class="hero-subtitle">Advanced Disaster Relief Management System</p>
-                <span class="status-badge">● System Operational</span>
-            </div>
-        </div>
-        <div class="emergency-info" style="margin-top: 20px;">
-            <strong style="color: #fbbf24;">⚡ Emergency Hotlines:</strong>
-            <span style="color: #cbd5e1; margin-left: 16px;">
-                Police: 112  |  Medical: 108  |  Fire: 101
+    <div class="glass-card" style="margin-top: 24px;">
+        <h1 style="font-size:2.6rem; margin-bottom:8px;">🌍 ReliefMate AI</h1>
+        <p style="color:#cbd5e1; font-size:1.05rem;">
+            Advanced Disaster Relief Management System
+        </p>
+        <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
+            <span class="status-badge">● System Operational</span>
+            <span style="background:rgba(15,23,42,0.6); padding:8px 16px; border-radius:12px; border:1px solid rgba(148,163,184,0.2);">
+                ⚡ Emergency: 112 | 108 | 101
             </span>
         </div>
     </div>
