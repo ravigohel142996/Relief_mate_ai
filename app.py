@@ -12,7 +12,6 @@ import os
 # ----------------------------
 st.set_page_config(
     page_title="ReliefMate - Disaster Relief Management Platform",
-    page_icon="🔷",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -110,7 +109,7 @@ def inject_custom_css():
     .stTextInput > div > div > input:focus,
     .stTextArea > div > div > textarea:focus {
         border-color: #2563eb !important;
-        outline: 2px solid #dbeafe !important;
+        outline: 2px solid #2563eb !important;
         background: #ffffff !important;
     }
     
