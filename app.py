@@ -407,22 +407,31 @@ def inject_custom_css():
 # Gemini API Setup
 # ----------------------------
 def setup_gemini():
-    # Correct way to read from Streamlit secrets
+    """
+    Setup Gemini API with graceful fallback handling.
+    Returns: (model, status_text) where status is 'Operational' or 'Limited Mode'
+    """
+    # Try to read API key from Streamlit secrets
     try:
         GEMINI_KEY = st.secrets["general"]["GEMINI_API_KEY"]
     except (KeyError, FileNotFoundError):
         GEMINI_KEY = None
-        st.warning("Gemini API key not found in secrets.toml")
     
+    # Attempt to initialize Gemini API with stable model
     if GEMINI_KEY and GEMINI_KEY != "your_actual_gemini_api_key_here":
         try:
             genai.configure(api_key=GEMINI_KEY)
-            model = genai.GenerativeModel("gemini-1.5-flash")
-            return model, "Connected"
+            model = genai.GenerativeModel("gemini-pro")
+            # Test the model with a simple call to verify it works
+            _ = model.generate_content("test")
+            return model, "Operational"
         except Exception as e:
-            return None, f"API Error: {str(e)[:50]}..."
+            # Log error for debugging but don't show to user
+            print(f"Gemini API initialization failed: {e}")
+            return None, "Limited Mode"
     else:
-        return None, "Demo Mode (Add real GEMINI_API_KEY to secrets)"
+        # No API key configured - run in demo mode
+        return None, "Limited Mode"
 
 # ----------------------------
 # Sample Data Generation
@@ -574,7 +583,10 @@ def render_chat_interface(model, api_status):
                     response = model.generate_content(enhanced_prompt)
                     ai_response = response.text.strip()
                 except Exception as e:
-                    ai_response = f"Service temporarily unavailable. For immediate help: 112 (Police), 108 (Medical), 101 (Fire). Error: {str(e)[:50]}..."
+                    # Log error for debugging
+                    print(f"Gemini API error: {e}")
+                    # Provide clean fallback response to user
+                    ai_response = "**Emergency Guidance**: For immediate assistance, contact emergency services: 112 (Police), 108 (Medical), 101 (Fire). Our automated guidance system is temporarily processing your request. Please try again or refer to the emergency protocols below."
         else:
             # Demo responses for when API is not available
             demo_responses = [
