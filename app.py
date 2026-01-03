@@ -1045,6 +1045,7 @@ def render_reports_dashboard(reports):
         else:  # Monitoring
             status_class = "status-monitoring"
         
+        # Main report card header
         st.markdown(f"""
         <div class="glass-card" style="margin-bottom: 24px !important; padding: 28px !important;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
@@ -1064,54 +1065,79 @@ def render_reports_dashboard(reports):
                 <p style="margin: 0 0 8px 0; font-size: 0.95rem;"><strong style="color: #334155; font-weight: 600;">Disaster Type:</strong> <span style="color: #334155;">{report["type"]}</span></p>
                 <p style="margin: 0; font-size: 0.95rem;"><strong style="color: #334155; font-weight: 600;">Requirements:</strong> <span style="color: #334155;">{report["needs"]}</span></p>
             </div>
-            
-            <!-- Nearest Safe Place - FEATURE 3 -->
-            <div style="background: #eff6ff; padding: 16px; border-radius: 8px; margin-bottom: 16px; border: 1px solid #bfdbfe;">
-                <p style="margin: 0 0 8px 0; font-size: 0.9rem; font-weight: 700; color: #1e40af;">
-                    Nearest Safe Place (Suggested)
-                </p>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.85rem;">
-                    <p style="margin: 0;"><strong style="color: #334155;">Location:</strong> {safe_place['name']}</p>
-                    <p style="margin: 0;"><strong style="color: #334155;">Type:</strong> {safe_place['type']}</p>
-                    <p style="margin: 0;"><strong style="color: #334155;">Distance:</strong> {safe_place['distance']}</p>
-                    <p style="margin: 0;"><strong style="color: #334155;">Capacity:</strong> {safe_place['capacity']}</p>
-                </div>
-                <p style="margin: 8px 0 0 0; font-size: 0.75rem; color: #64748b; font-style: italic;">
-                    Demo logic – Production-ready design with live GPS integration planned
-                </p>
-            </div>
-            
-            <!-- Live Incident Timeline - FEATURE 4 -->
-            <div style="background: #ffffff; padding: 16px; border-radius: 8px; margin-bottom: 12px; border: 1px solid #e5e7eb;">
-                <p style="margin: 0 0 12px 0; font-size: 0.9rem; font-weight: 700; color: #0f172a;">
-                    Incident Timeline
-                </p>
-                <div class="timeline-container">
-                    <div class="timeline-item">
-                        <p style="margin: 0; font-weight: 600; font-size: 0.85rem; color: #334155;">Incident Created</p>
-                        <p style="margin: 2px 0 0 0; font-size: 0.8rem; color: #64748b;">{report['created_time'].strftime('%Y-%m-%d %H:%M IST')}</p>
-                    </div>
-                    <div class="timeline-item">
-                        <p style="margin: 0; font-weight: 600; font-size: 0.85rem; color: #334155;">Team Assigned</p>
-                        <p style="margin: 2px 0 0 0; font-size: 0.8rem; color: #64748b;">{report['team_assigned_time'].strftime('%Y-%m-%d %H:%M IST')} - {report['team']}</p>
-                    </div>
-                    <div class="timeline-item">
-                        <p style="margin: 0; font-weight: 600; font-size: 0.85rem; color: #334155;">Status Updated</p>
-                        <p style="margin: 2px 0 0 0; font-size: 0.8rem; color: #64748b;">{report['last_updated'].strftime('%Y-%m-%d %H:%M IST')} - {report['status']}</p>
-                    </div>
-                    <div class="timeline-item">
-                        <p style="margin: 0; font-weight: 600; font-size: 0.85rem; color: #2563eb;">Last Checked</p>
-                        <p style="margin: 2px 0 0 0; font-size: 0.8rem; color: #64748b;">{datetime.datetime.now().strftime('%Y-%m-%d %H:%M IST')} - Active Monitoring</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: #64748b; font-size: 0.85rem;">
-                <p style="margin: 0;"><strong style="color: #64748b;">Response Team:</strong> <span style="color: #334155; font-weight: 600;">{report["team"]}</span></p>
-                <p style="margin: 0; color: #64748b; font-style: italic;">Last Updated: {datetime.datetime.now().strftime('%H:%M')} IST</p>
-            </div>
         </div>
         """, unsafe_allow_html=True)
+        
+        # Nearest Safe Place section using columns
+        st.markdown(f"""
+        <div style="background: #eff6ff; padding: 16px; border-radius: 8px; margin-bottom: 16px; border: 1px solid #bfdbfe;">
+            <p style="margin: 0 0 12px 0; font-size: 0.9rem; font-weight: 700; color: #1e40af;">
+                Nearest Safe Place (Suggested)
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(f"""
+            <div style="background: #f8fafc; padding: 12px; border-radius: 6px; margin-bottom: 8px;">
+                <p style="margin: 0; font-size: 0.85rem;"><strong style="color: #334155;">Location:</strong> {safe_place['name']}</p>
+            </div>
+            <div style="background: #f8fafc; padding: 12px; border-radius: 6px;">
+                <p style="margin: 0; font-size: 0.85rem;"><strong style="color: #334155;">Distance:</strong> {safe_place['distance']}</p>
+            </div>
+            """, unsafe_allow_html=True)
+        with col2:
+            st.markdown(f"""
+            <div style="background: #f8fafc; padding: 12px; border-radius: 6px; margin-bottom: 8px;">
+                <p style="margin: 0; font-size: 0.85rem;"><strong style="color: #334155;">Type:</strong> {safe_place['type']}</p>
+            </div>
+            <div style="background: #f8fafc; padding: 12px; border-radius: 6px;">
+                <p style="margin: 0; font-size: 0.85rem;"><strong style="color: #334155;">Capacity:</strong> {safe_place['capacity']}</p>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <p style="margin: 8px 0 16px 0; font-size: 0.75rem; color: #64748b; font-style: italic; text-align: center;">
+            Demo logic – Production-ready design with live GPS integration planned
+        </p>
+        """, unsafe_allow_html=True)
+        
+        # Incident Timeline section
+        st.markdown("""
+        <div style="background: #ffffff; padding: 16px; border-radius: 8px; margin-bottom: 12px; border: 1px solid #e5e7eb;">
+            <p style="margin: 0 0 12px 0; font-size: 0.9rem; font-weight: 700; color: #0f172a;">
+                Incident Timeline
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Timeline items
+        timeline_events = [
+            ("Incident Created", report['created_time'].strftime('%Y-%m-%d %H:%M IST'), "#334155"),
+            ("Team Assigned", f"{report['team_assigned_time'].strftime('%Y-%m-%d %H:%M IST')} - {report['team']}", "#334155"),
+            ("Status Updated", f"{report['last_updated'].strftime('%Y-%m-%d %H:%M IST')} - {report['status']}", "#334155"),
+            ("Last Checked", f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M IST')} - Active Monitoring", "#2563eb")
+        ]
+        
+        for event_name, event_time, color in timeline_events:
+            st.markdown(f"""
+            <div class="timeline-item" style="padding-left: 30px; position: relative; margin-bottom: 16px;">
+                <div style="position: absolute; left: 0; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: {color}; border: 2px solid #ffffff; box-shadow: 0 0 0 2px #e5e7eb;"></div>
+                <p style="margin: 0; font-weight: 600; font-size: 0.85rem; color: {color};">{event_name}</p>
+                <p style="margin: 2px 0 0 0; font-size: 0.8rem; color: #64748b;">{event_time}</p>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        # Footer
+        st.markdown(f"""
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: #64748b; font-size: 0.85rem; padding-top: 12px; border-top: 1px solid #e5e7eb;">
+            <p style="margin: 0;"><strong style="color: #64748b;">Response Team:</strong> <span style="color: #334155; font-weight: 600;">{report["team"]}</span></p>
+            <p style="margin: 0; color: #64748b; font-style: italic;">Last Updated: {datetime.datetime.now().strftime('%H:%M')} IST</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("<br>", unsafe_allow_html=True)
 
 # ----------------------------
 # Analytics Dashboard
