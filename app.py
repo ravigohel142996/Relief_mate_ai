@@ -6,6 +6,7 @@ import google.generativeai as genai
 from datetime import date, timedelta
 import numpy as np
 import os
+import html
 
 # ----------------------------
 # Page Config
@@ -964,6 +965,44 @@ def get_safety_playbook(disaster_type):
             ],
             "evacuation": "Move perpendicular to landslide path, not downslope. Go to higher, stable ground. Avoid river valleys and drainage paths.",
             "contacts": "Disaster Control: 1070 | Emergency: 112"
+        },
+        "Building Collapse": {
+            "do": [
+                "Call emergency services (112) immediately",
+                "Move to safe distance from the building",
+                "Alert others in the area",
+                "Wait for professional rescue teams",
+                "If trapped, tap on pipes or walls to signal location",
+                "Cover mouth and nose to avoid dust inhalation"
+            ],
+            "dont": [
+                "Don't enter or go near collapsed structure",
+                "Don't attempt rescue without proper equipment",
+                "Don't use open flames (gas leak risk)",
+                "Don't move seriously injured victims unless immediate danger",
+                "Don't give up hope if trapped - rescue teams will come"
+            ],
+            "evacuation": "Evacuate surrounding buildings immediately. Move to designated safe assembly points. Follow instructions from NDRF and local authorities.",
+            "contacts": "Emergency: 112 | NDRF: 9711077372"
+        },
+        "Chemical Spill": {
+            "do": [
+                "Evacuate area immediately upwind from spill",
+                "Call emergency services (112) immediately",
+                "Close all doors and windows if indoors nearby",
+                "Follow official evacuation routes",
+                "Cover mouth and nose with wet cloth",
+                "Remove contaminated clothing if exposed"
+            ],
+            "dont": [
+                "Don't approach the spill area",
+                "Don't touch or walk through spilled material",
+                "Don't eat or drink anything from affected area",
+                "Don't use elevators during evacuation",
+                "Don't return until authorities declare all-clear"
+            ],
+            "evacuation": "Evacuate immediately in direction away from spill and upwind. Move at least 500 meters away. Seek medical attention if exposed.",
+            "contacts": "Emergency: 112 | Pollution Control: 1800-110-110"
         }
     }
     
@@ -1372,30 +1411,37 @@ def render_reports_dashboard(reports, view_mode="authority"):
         
         col1, col2 = st.columns(2)
         with col1:
+            # Escape HTML in safety playbook items
+            do_items = ''.join([f'<li>{html.escape(item)}</li>' for item in safety_playbook['do']])
             st.markdown(f"""
             <div style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 16px; border-radius: 6px; min-height: 200px;">
                 <p style="margin: 0 0 10px 0; font-weight: 700; color: #16a34a; font-size: 0.95rem;">DO's</p>
                 <ul style="margin: 0; padding-left: 20px; color: #334155; font-size: 0.85rem; line-height: 1.8;">
-                    {''.join([f'<li>{item}</li>' for item in safety_playbook['do']])}
+                    {do_items}
                 </ul>
             </div>
             """, unsafe_allow_html=True)
         
         with col2:
+            # Escape HTML in safety playbook items
+            dont_items = ''.join([f'<li>{html.escape(item)}</li>' for item in safety_playbook['dont']])
             st.markdown(f"""
             <div style="background: #fef2f2; border-left: 4px solid #dc2626; padding: 16px; border-radius: 6px; min-height: 200px;">
                 <p style="margin: 0 0 10px 0; font-weight: 700; color: #dc2626; font-size: 0.95rem;">DON'Ts</p>
                 <ul style="margin: 0; padding-left: 20px; color: #334155; font-size: 0.85rem; line-height: 1.8;">
-                    {''.join([f'<li>{item}</li>' for item in safety_playbook['dont']])}
+                    {dont_items}
                 </ul>
             </div>
             """, unsafe_allow_html=True)
         
+        # Escape HTML in evacuation guidance and contacts
+        evacuation_text = html.escape(safety_playbook['evacuation'])
+        contacts_text = html.escape(safety_playbook['contacts'])
         st.markdown(f"""
         <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 16px; border-radius: 8px; margin-top: 12px; margin-bottom: 16px;">
             <p style="margin: 0 0 8px 0; font-weight: 600; color: #1e40af; font-size: 0.9rem;">Evacuation Guidance:</p>
-            <p style="margin: 0; color: #334155; font-size: 0.85rem;">{safety_playbook['evacuation']}</p>
-            <p style="margin: 12px 0 0 0; font-weight: 600; color: #1e40af; font-size: 0.85rem;">Emergency Contacts: {safety_playbook['contacts']}</p>
+            <p style="margin: 0; color: #334155; font-size: 0.85rem;">{evacuation_text}</p>
+            <p style="margin: 12px 0 0 0; font-weight: 600; color: #1e40af; font-size: 0.85rem;">Emergency Contacts: {contacts_text}</p>
         </div>
         """, unsafe_allow_html=True)
         
