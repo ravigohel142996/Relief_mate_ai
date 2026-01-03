@@ -1686,43 +1686,59 @@ def render_system_health():
     
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S IST")
     
-    st.markdown(f"""
+    st.markdown("""
     <div class="glass-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%) !important;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #16a34a;">
-                <p style="margin: 0 0 8px 0; color: #16a34a; font-weight: 700; font-size: 1rem;">Backend Status</p>
-                <p style="margin: 0 0 4px 0; color: #334155; font-size: 1.3rem; font-weight: 700;">Operational</p>
-                <p style="margin: 0; color: #64748b; font-size: 0.8rem;">All core services running normally</p>
-            </div>
-            
-            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #2563eb;">
-                <p style="margin: 0 0 8px 0; color: #2563eb; font-weight: 700; font-size: 1rem;">AI Service</p>
-                <p style="margin: 0 0 4px 0; color: #334155; font-size: 1.3rem; font-weight: 700;">Available</p>
-                <p style="margin: 0; color: #64748b; font-size: 0.8rem;">Gemini API connected with fallback enabled</p>
-            </div>
-            
-            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #d97706;">
-                <p style="margin: 0 0 8px 0; color: #d97706; font-weight: 700; font-size: 1rem;">Fallback System</p>
-                <p style="margin: 0 0 4px 0; color: #334155; font-size: 1.3rem; font-weight: 700;">Enabled</p>
-                <p style="margin: 0; color: #64748b; font-size: 0.8rem;">Graceful degradation active</p>
-            </div>
-            
-            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #7c3aed;">
-                <p style="margin: 0 0 8px 0; color: #7c3aed; font-weight: 700; font-size: 1rem;">Data Freshness</p>
-                <p style="margin: 0 0 4px 0; color: #334155; font-size: 0.95rem; font-weight: 700;">Last Update</p>
-                <p style="margin: 0; color: #64748b; font-size: 0.8rem;">{current_time}</p>
-            </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # Use Streamlit columns for better rendering
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        st.markdown("""
+        <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #16a34a; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);">
+            <p style="margin: 0 0 8px 0; color: #16a34a; font-weight: 700; font-size: 1rem;">Backend Status</p>
+            <p style="margin: 0 0 4px 0; color: #334155; font-size: 1.3rem; font-weight: 700;">Operational</p>
+            <p style="margin: 0; color: #64748b; font-size: 0.8rem;">All core services running normally</p>
         </div>
-        
-        <div style="margin-top: 24px; padding: 20px; background: white; border-radius: 10px; border: 1px solid #e5e7eb;">
-            <p style="margin: 0 0 12px 0; font-weight: 700; color: #0f172a; font-size: 1rem;">System Architecture</p>
-            <p style="margin: 0 0 8px 0; color: #334155; font-size: 0.85rem; line-height: 1.6;">
-                <strong>Modular Design:</strong> Frontend (Streamlit) + AI Service (Gemini API) + Data Layer (In-memory demo, database-ready)
-            </p>
-            <p style="margin: 0; color: #334155; font-size: 0.85rem; line-height: 1.6;">
-                <strong>Reliability Features:</strong> API fallback, error handling, graceful degradation, session management, real-time updates
-            </p>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown("""
+        <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #2563eb; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);">
+            <p style="margin: 0 0 8px 0; color: #2563eb; font-weight: 700; font-size: 1rem;">AI Service</p>
+            <p style="margin: 0 0 4px 0; color: #334155; font-size: 1.3rem; font-weight: 700;">Available</p>
+            <p style="margin: 0; color: #64748b; font-size: 0.8rem;">Gemini API connected with fallback enabled</p>
         </div>
+        """, unsafe_allow_html=True)
+    
+    with col3:
+        st.markdown("""
+        <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #d97706; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);">
+            <p style="margin: 0 0 8px 0; color: #d97706; font-weight: 700; font-size: 1rem;">Fallback System</p>
+            <p style="margin: 0 0 4px 0; color: #334155; font-size: 1.3rem; font-weight: 700;">Enabled</p>
+            <p style="margin: 0; color: #64748b; font-size: 0.8rem;">Graceful degradation active</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col4:
+        st.markdown(f"""
+        <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #7c3aed; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);">
+            <p style="margin: 0 0 8px 0; color: #7c3aed; font-weight: 700; font-size: 1rem;">Data Freshness</p>
+            <p style="margin: 0 0 4px 0; color: #334155; font-size: 0.95rem; font-weight: 700;">Last Update</p>
+            <p style="margin: 0; color: #64748b; font-size: 0.8rem;">{current_time}</p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div style="margin-top: 24px; padding: 20px; background: white; border-radius: 10px; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);">
+        <p style="margin: 0 0 12px 0; font-weight: 700; color: #0f172a; font-size: 1rem;">System Architecture</p>
+        <p style="margin: 0 0 8px 0; color: #334155; font-size: 0.85rem; line-height: 1.6;">
+            <strong>Modular Design:</strong> Frontend (Streamlit) + AI Service (Gemini API) + Data Layer (In-memory demo, database-ready)
+        </p>
+        <p style="margin: 0; color: #334155; font-size: 0.85rem; line-height: 1.6;">
+            <strong>Reliability Features:</strong> API fallback, error handling, graceful degradation, session management, real-time updates
+        </p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1754,63 +1770,72 @@ def render_security_privacy():
     st.markdown("## Security & Privacy")
     st.markdown('<p style="color: #64748b; margin-bottom: 24px; text-align: center;">Data protection and security measures</p>', unsafe_allow_html=True)
     
-    st.markdown("""
-    <div class="glass-card" style="background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%) !important;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-            <div style="background: white; padding: 24px; border-radius: 10px; border: 2px solid #3b82f6;">
-                <h3 style="margin: 0 0 12px 0; color: #1e40af; font-size: 1.05rem; font-weight: 700;">
-                    Data Storage
-                </h3>
-                <p style="margin: 0; color: #334155; font-size: 0.9rem; line-height: 1.7;">
-                    <strong>No Personal Data Stored:</strong> This demo system uses in-memory storage. 
-                    No citizen personal information, location data, or contact details are persistently stored.
-                </p>
-            </div>
-            
-            <div style="background: white; padding: 24px; border-radius: 10px; border: 2px solid #3b82f6;">
-                <h3 style="margin: 0 0 12px 0; color: #1e40af; font-size: 1.05rem; font-weight: 700;">
-                    Access Control
-                </h3>
-                <p style="margin: 0; color: #334155; font-size: 0.9rem; line-height: 1.7;">
-                    <strong>Role-Based Access:</strong> Citizens have read-only access to safety information. 
-                    Authority controls (incident management, notes) are separated and require authentication in production.
-                </p>
-            </div>
-            
-            <div style="background: white; padding: 24px; border-radius: 10px; border: 2px solid #3b82f6;">
-                <h3 style="margin: 0 0 12px 0; color: #1e40af; font-size: 1.05rem; font-weight: 700;">
-                    Production Encryption
-                </h3>
-                <p style="margin: 0; color: #334155; font-size: 0.9rem; line-height: 1.7;">
-                    <strong>Ready for Deployment:</strong> Production deployment will use HTTPS/TLS encryption for all communications. 
-                    Database encryption at rest. Secure API key management via environment variables or secret managers.
-                </p>
-            </div>
-            
-            <div style="background: white; padding: 24px; border-radius: 10px; border: 2px solid #3b82f6;">
-                <h3 style="margin: 0 0 12px 0; color: #1e40af; font-size: 1.05rem; font-weight: 700;">
-                    Compliance
-                </h3>
-                <p style="margin: 0; color: #334155; font-size: 0.9rem; line-height: 1.7;">
-                    <strong>Regulatory Alignment:</strong> Architecture designed for compliance with India's Digital Personal Data Protection Act 2023. 
-                    Minimal data collection, purpose limitation, and user consent mechanisms.
-                </p>
-            </div>
-        </div>
-        
-        <div style="margin-top: 24px; padding: 20px; background: #fef9c3; border-radius: 10px; border-left: 4px solid #d97706;">
-            <p style="margin: 0 0 8px 0; font-weight: 700; color: #854d0e; font-size: 1rem;">
-                Security Best Practices Implemented
+    # Use Streamlit columns for better rendering
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("""
+        <div style="background: white; padding: 24px; border-radius: 10px; border: 2px solid #3b82f6; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); margin-bottom: 20px;">
+            <h3 style="margin: 0 0 12px 0; color: #1e40af; font-size: 1.05rem; font-weight: 700;">
+                Data Storage
+            </h3>
+            <p style="margin: 0; color: #334155; font-size: 0.9rem; line-height: 1.7;">
+                <strong>No Personal Data Stored:</strong> This demo system uses in-memory storage. 
+                No citizen personal information, location data, or contact details are persistently stored.
             </p>
-            <ul style="margin: 0; padding-left: 20px; color: #78350f; font-size: 0.85rem; line-height: 1.8;">
-                <li>API key stored in secrets (not in code)</li>
-                <li>Input validation on all user forms</li>
-                <li>Graceful error handling (no sensitive data in error messages)</li>
-                <li>Session management for chat history</li>
-                <li>Read-only citizen interface (no data modification)</li>
-                <li>Authority functions separated for role-based deployment</li>
-            </ul>
         </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div style="background: white; padding: 24px; border-radius: 10px; border: 2px solid #3b82f6; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);">
+            <h3 style="margin: 0 0 12px 0; color: #1e40af; font-size: 1.05rem; font-weight: 700;">
+                Production Encryption
+            </h3>
+            <p style="margin: 0; color: #334155; font-size: 0.9rem; line-height: 1.7;">
+                <strong>Ready for Deployment:</strong> Production deployment will use HTTPS/TLS encryption for all communications. 
+                Database encryption at rest. Secure API key management via environment variables or secret managers.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with col2:
+        st.markdown("""
+        <div style="background: white; padding: 24px; border-radius: 10px; border: 2px solid #3b82f6; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); margin-bottom: 20px;">
+            <h3 style="margin: 0 0 12px 0; color: #1e40af; font-size: 1.05rem; font-weight: 700;">
+                Access Control
+            </h3>
+            <p style="margin: 0; color: #334155; font-size: 0.9rem; line-height: 1.7;">
+                <strong>Role-Based Access:</strong> Citizens have read-only access to safety information. 
+                Authority controls (incident management, notes) are separated and require authentication in production.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div style="background: white; padding: 24px; border-radius: 10px; border: 2px solid #3b82f6; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);">
+            <h3 style="margin: 0 0 12px 0; color: #1e40af; font-size: 1.05rem; font-weight: 700;">
+                Compliance
+            </h3>
+            <p style="margin: 0; color: #334155; font-size: 0.9rem; line-height: 1.7;">
+                <strong>Regulatory Alignment:</strong> Architecture designed for compliance with India's Digital Personal Data Protection Act 2023. 
+                Minimal data collection, purpose limitation, and user consent mechanisms.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div style="margin-top: 24px; padding: 20px; background: #fef9c3; border-radius: 10px; border-left: 4px solid #d97706; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);">
+        <p style="margin: 0 0 8px 0; font-weight: 700; color: #854d0e; font-size: 1rem;">
+            Security Best Practices Implemented
+        </p>
+        <ul style="margin: 0; padding-left: 20px; color: #78350f; font-size: 0.85rem; line-height: 1.8;">
+            <li>API key stored in secrets (not in code)</li>
+            <li>Input validation on all user forms</li>
+            <li>Graceful error handling (no sensitive data in error messages)</li>
+            <li>Session management for chat history</li>
+            <li>Read-only citizen interface (no data modification)</li>
+            <li>Authority functions separated for role-based deployment</li>
+        </ul>
     </div>
     """, unsafe_allow_html=True)
 
