@@ -8,22 +8,22 @@ import numpy as np
 import os
 
 # ----------------------------
-# 🎨 Page Config
+# Page Config
 # ----------------------------
 st.set_page_config(
     page_title="ReliefMate - Disaster Relief Management Platform",
-    page_icon="🏛️",
+    page_icon="🔷",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
 
 # ---------------------------
-# Professional Dashboard Styling
+# Clean Professional Dashboard Styling
 # ----------------------------
 def inject_custom_css():
     st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     
     /* Global Styles */
     * {
@@ -32,189 +32,127 @@ def inject_custom_css():
         box-sizing: border-box;
     }
     
-    /* Clean Professional Background */
+    /* Clean Light Background */
     [data-testid="stAppViewContainer"] {
-        background: linear-gradient(180deg, #0f172a 0%, #111827 50%, #1e293b 100%) !important;
-        position: relative;
+        background: #f8fafc !important;
     }
     
     [data-testid="stApp"] {
-        background: transparent !important;
+        background: #f8fafc !important;
     }
     
-    /* Header Section - Clean Professional Card */
-    .hero-container {
-        background: rgba(30, 41, 59, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 32px 40px;
-        text-align: left;
-        margin: 20px auto 32px auto;
-        max-width: 1400px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-        position: relative;
-        z-index: 1;
-    }
-    
-    .hero-title {
-        font-size: 2.2rem;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #ffffff;
-        letter-spacing: 0.02em;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
-        margin-bottom: 16px;
-        color: #94a3b8;
-        font-weight: 400;
-    }
-    
-    .status-text {
-        display: inline-block;
-        color: #94a3b8;
-        padding: 6px 16px;
-        border-radius: 6px;
-        font-size: 0.875rem;
-        font-weight: 500;
-        background: rgba(15, 23, 42, 0.4);
-    }
-    
-    .emergency-info {
-        margin-top: 16px;
-        padding: 12px 16px;
-        background: rgba(15, 23, 42, 0.4);
-        border-radius: 8px;
-        border-left: 3px solid #0ea5e9;
-        color: #94a3b8;
-        font-size: 0.875rem;
-    }
-    
-    /* Clean Flat Cards */
+    /* Clean White Cards */
     .glass-card {
-        background: rgba(30, 41, 59, 0.7) !important;
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important;
-        border-radius: 12px !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        background: #ffffff !important;
+        border-radius: 8px !important;
+        border: 1px solid #e2e8f0 !important;
         padding: 24px !important;
         margin: 20px 0 !important;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
-        color: #e2e8f0 !important;
-        position: relative !important;
-        z-index: 1 !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+        color: #0f172a !important;
     }
     
-    /* Chat Interface - Clean Console Style */
+    /* Chat Interface - Clean Style */
     .chat-container {
-        background: rgba(30, 41, 59, 0.7) !important;
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important;
-        border-radius: 12px !important;
+        background: #ffffff !important;
+        border-radius: 8px !important;
         padding: 24px !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid #e2e8f0 !important;
         margin: 24px 0 !important;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
     }
     
     .chat-message {
-        background: rgba(15, 23, 42, 0.6);
+        background: #f8fafc;
         padding: 16px 20px;
         border-radius: 8px;
         margin: 12px 0;
-        border-left: 3px solid #0ea5e9;
+        border-left: 3px solid #2563eb;
     }
     
     .chat-message strong {
-        color: #0ea5e9;
-        font-weight: 600;
+        color: #2563eb;
+        font-weight: 700;
     }
     
-    /* Clean Buttons */
+    /* Solid Buttons */
     .stButton > button {
-        background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%) !important;
+        background: #2563eb !important;
         color: white !important;
-        border: 1px solid rgba(14, 165, 233, 0.3) !important;
-        border-radius: 8px !important;
+        border: none !important;
+        border-radius: 6px !important;
         padding: 12px 24px !important;
         font-weight: 600 !important;
         font-size: 0.95rem !important;
-        transition: all 0.2s ease !important;
-        box-shadow: 0 2px 8px rgba(14, 165, 233, 0.2) !important;
+        transition: background 0.2s ease !important;
+        box-shadow: none !important;
     }
     
     .stButton > button:hover {
-        background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
-        box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3) !important;
-        border-color: rgba(14, 165, 233, 0.5) !important;
+        background: #1d4ed8 !important;
     }
     
     .stButton > button:active {
-        transform: scale(0.98) !important;
+        background: #1e40af !important;
     }
     
-    /* Text Input - Clean and Professional */
+    /* Text Input - Clean */
     .stTextInput > div > div > input,
     .stTextArea > div > div > textarea {
-        background: rgba(15, 23, 42, 0.8) !important;
-        border: 1px solid rgba(148, 163, 184, 0.3) !important;
-        border-radius: 8px !important;
-        color: #e2e8f0 !important;
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 6px !important;
+        color: #0f172a !important;
         padding: 12px 16px !important;
         font-size: 0.95rem !important;
-        transition: all 0.2s ease !important;
     }
     
     .stTextInput > div > div > input:focus,
     .stTextArea > div > div > textarea:focus {
-        border-color: #0ea5e9 !important;
-        box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2) !important;
-        background: rgba(15, 23, 42, 0.9) !important;
-        outline: none !important;
+        border-color: #2563eb !important;
+        outline: 2px solid #dbeafe !important;
+        background: #ffffff !important;
     }
     
     .stSelectbox > div > div {
-        background: rgba(15, 23, 42, 0.8) !important;
-        border: 1px solid rgba(148, 163, 184, 0.3) !important;
-        border-radius: 8px !important;
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 6px !important;
     }
     
     .stSelectbox > div > div:hover {
-        border-color: rgba(14, 165, 233, 0.4) !important;
+        border-color: #2563eb !important;
     }
     
-    /* Metrics - Clean Stats Cards */
+    /* Metrics - Clean Cards */
     .metric-container {
-        background: rgba(30, 41, 59, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-radius: 12px;
+        background: #ffffff;
+        border-radius: 8px;
         padding: 24px 20px;
         text-align: center;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
     
     .metric-value {
-        font-size: 2.25rem;
+        font-size: 2.5rem;
         font-weight: 800;
-        color: #ffffff;
-        margin-bottom: 6px;
-        letter-spacing: 0.02em;
+        color: #0f172a;
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
     }
     
     .metric-label {
         font-size: 0.875rem;
-        color: #e5e7eb;
+        color: #475569;
         font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
     
-    /* Tab Styling - Clean Professional Tabs */
+    /* Tab Styling - Clean Pills */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
+        gap: 12px;
         background: transparent;
         border-bottom: none;
         padding-bottom: 0;
@@ -223,29 +161,25 @@ def inject_custom_css():
     }
     
     .stTabs [data-baseweb="tab"] {
-        background: rgba(30, 41, 59, 0.7) !important;
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        background: #ffffff !important;
         border-radius: 8px;
-        color: #cbd5e1 !important;
+        color: #475569 !important;
         padding: 12px 24px !important;
         font-weight: 600 !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid #e2e8f0 !important;
         font-size: 0.95rem !important;
-        transition: all 0.2s ease;
     }
     
     .stTabs [data-baseweb="tab"]:hover {
-        background: rgba(30, 41, 59, 0.75) !important;
-        border-color: rgba(14, 165, 233, 0.3) !important;
-        color: #e2e8f0 !important;
+        background: #f8fafc !important;
+        border-color: #cbd5e1 !important;
+        color: #0f172a !important;
     }
     
     .stTabs [aria-selected="true"] {
-        background: rgba(14, 165, 233, 0.15) !important;
-        color: #0ea5e9 !important;
-        border: 1px solid rgba(14, 165, 233, 0.5) !important;
-        border-bottom: 3px solid #0ea5e9 !important;
+        background: #2563eb !important;
+        color: #ffffff !important;
+        border: 1px solid #2563eb !important;
     }
     
     /* Hide Streamlit branding */
@@ -259,14 +193,12 @@ def inject_custom_css():
         padding-left: 2rem;
         padding-right: 2rem;
         max-width: 1400px;
-        position: relative;
-        z-index: 1;
     }
     
     h1, h2, h3 {
-        color: #ffffff;
+        color: #0f172a;
         font-weight: 700;
-        letter-spacing: 0.02em;
+        letter-spacing: -0.02em;
         margin-top: 0.5rem;
         margin-bottom: 1rem;
     }
@@ -274,121 +206,128 @@ def inject_custom_css():
     h2 {
         margin-bottom: 16px;
         margin-top: 32px;
-        font-size: 1.6rem;
-        font-weight: 700;
-        color: #ffffff;
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: #0f172a;
     }
     
     h3 {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         margin-top: 24px;
         font-weight: 700;
-        color: #ffffff;
+        color: #0f172a;
     }
     
     p, label {
-        color: #94a3b8;
+        color: #475569;
         line-height: 1.6;
         margin-bottom: 0.8rem;
     }
     
-    /* Status badges - Clean, no glow */
+    /* Status badges - Clean, solid colors */
     .status-critical {
-        background: rgba(220, 38, 38, 0.15);
-        color: #ef4444;
+        background: #fee2e2;
+        color: #dc2626;
         padding: 6px 14px;
         border-radius: 6px;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 0.85rem;
-        border: 1px solid rgba(220, 38, 38, 0.3);
+        border: 1px solid #fca5a5;
     }
     
     .status-active {
-        background: rgba(217, 119, 6, 0.15);
-        color: #f59e0b;
+        background: #fef3c7;
+        color: #d97706;
         padding: 6px 14px;
         border-radius: 6px;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 0.85rem;
-        border: 1px solid rgba(217, 119, 6, 0.3);
+        border: 1px solid #fcd34d;
     }
     
     .status-resolved {
-        background: rgba(16, 185, 129, 0.15);
-        color: #10b981;
+        background: #d1fae5;
+        color: #16a34a;
         padding: 6px 14px;
         border-radius: 6px;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 0.85rem;
-        border: 1px solid rgba(16, 185, 129, 0.3);
+        border: 1px solid #86efac;
     }
     
     .status-monitoring {
-        background: rgba(37, 99, 235, 0.15);
-        color: #3b82f6;
+        background: #dbeafe;
+        color: #2563eb;
         padding: 6px 14px;
         border-radius: 6px;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 0.85rem;
-        border: 1px solid rgba(37, 99, 235, 0.3);
+        border: 1px solid #93c5fd;
+    }
+    
+    .status-text {
+        display: inline-block;
+        color: #475569;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
     }
     
     /* Responsive */
     @media (max-width: 768px) {
-        .hero-title {
+        h1 {
             font-size: 1.8rem;
         }
-        .hero-subtitle {
-            font-size: 0.9rem;
+        h2 {
+            font-size: 1.5rem;
         }
     }
     
     /* Streamlit Native Components */
     .stMetric {
-        background: rgba(30, 41, 59, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
         padding: 20px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
     
     .stMetric label {
-        color: #e5e7eb !important;
+        color: #475569 !important;
         font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 0.875rem !important;
     }
     
     .stMetric [data-testid="stMetricValue"] {
-        color: #ffffff !important;
+        color: #0f172a !important;
         font-weight: 800;
         font-size: 2.25rem !important;
     }
     
     /* File Uploader */
     .stFileUploader {
-        background: rgba(30, 41, 59, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 2px dashed rgba(148, 163, 184, 0.3);
-        border-radius: 12px;
+        background: #ffffff;
+        border: 2px dashed #cbd5e1;
+        border-radius: 8px;
         padding: 28px;
-        transition: all 0.2s ease;
     }
     
     .stFileUploader:hover {
-        border-color: rgba(14, 165, 233, 0.4);
-        background: rgba(30, 41, 59, 0.7);
+        border-color: #2563eb;
+        background: #f8fafc;
     }
     
     /* Data Frame */
     .stDataFrame {
-        background: rgba(30, 41, 59, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-radius: 12px;
+        background: #ffffff;
+        border-radius: 8px;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        border: 1px solid #e2e8f0;
     }
     
     /* Header overrides */
@@ -402,8 +341,14 @@ def inject_custom_css():
     
     /* Global Text Colors */
     body {
-        color: #e2e8f0;
+        color: #0f172a;
         font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    /* Labels */
+    label {
+        color: #0f172a !important;
+        font-weight: 600 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -463,13 +408,13 @@ def generate_sample_data():
     return reports, analytics
 
 # ----------------------------
-# Hero Section - Professional Header
+# Hero Section - Clean Professional Header
 # ----------------------------
 def render_hero():
     st.markdown("""
     <div class="glass-card" style="margin-top: 24px;">
-        <h1 style="font-size:2.2rem; margin-bottom:8px; font-weight: 700; letter-spacing: 0.02em; color: #ffffff;">ReliefMate</h1>
-        <p style="color:#cbd5e1; font-size:1rem; margin-bottom:16px;">
+        <h1 style="font-size:2.5rem; margin-bottom:12px; font-weight: 800; letter-spacing: -0.02em; color: #0f172a;">ReliefMate</h1>
+        <p style="color:#475569; font-size:1.125rem; margin-bottom:20px; font-weight: 500;">
             Disaster Relief Management Platform
         </p>
         <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
@@ -487,21 +432,19 @@ def render_hero():
 def render_university_header():
     st.markdown("""
     <div style="
-        background: rgba(30, 41, 59, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
         padding: 20px 28px;
         text-align: center;
         margin: 20px auto;
         max-width: 900px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     ">
-        <p style="color: #ffffff; font-size: 1.1rem; font-weight: 700; margin: 0 0 6px 0; letter-spacing: 0.02em;">
+        <p style="color: #0f172a; font-size: 1.125rem; font-weight: 700; margin: 0 0 8px 0; letter-spacing: -0.01em;">
             Marwadi University
         </p>
-        <p style="color: #94a3b8; font-size: 0.95rem; margin: 0; font-weight: 500;">
+        <p style="color: #475569; font-size: 0.95rem; margin: 0; font-weight: 500;">
             Department of Computer Science & Engineering (AI & ML)
         </p>
     </div>
@@ -512,7 +455,7 @@ def render_university_header():
 # ----------------------------
 def render_chat_interface(model, api_status):
     st.markdown("## Guidance")
-    st.markdown('<p style="color: #94a3b8; margin-bottom: 24px; text-align: center;">Get instant guidance on emergency procedures, resource allocation, and disaster response protocols</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #475569; margin-bottom: 24px; text-align: center;">Get instant guidance on emergency procedures, resource allocation, and disaster response protocols</p>', unsafe_allow_html=True)
     
     # Initialize chat history
     if "chat_history" not in st.session_state:
@@ -532,19 +475,17 @@ def render_chat_interface(model, api_status):
     <div style="
         max-width: 1000px; 
         margin: 0 auto 24px auto; 
-        background: rgba(30, 41, 59, 0.7); 
-        backdrop-filter: blur(12px); 
-        -webkit-backdrop-filter: blur(12px);
-        border-radius: 12px; 
+        background: #ffffff; 
+        border-radius: 8px; 
         padding: 28px; 
-        border: 1px solid rgba(255, 255, 255, 0.08); 
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        border: 1px solid #e2e8f0; 
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     ">
         <p style="
             text-align: center; 
-            color: #e2e8f0; 
+            color: #0f172a; 
             font-size: 1rem; 
-            font-weight: 500; 
+            font-weight: 600; 
             margin: 0 0 16px 0;
         ">
             Enter your question below
@@ -613,24 +554,24 @@ def render_chat_interface(model, api_status):
         for message in reversed(st.session_state.chat_history[-10:]):  # Show last 10 messages
             if message["role"] == "user":
                 st.markdown(f"""
-                <div class="chat-message" style="border-left: 3px solid #ef4444; background: rgba(220, 38, 38, 0.1);">
-                    <strong style="color: #ef4444;">You:</strong><br>
-                    <span style="color: #e2e8f0;">{message["content"]}</span>
+                <div class="chat-message" style="border-left: 3px solid #dc2626; background: #fee2e2;">
+                    <strong style="color: #dc2626;">You:</strong><br>
+                    <span style="color: #0f172a;">{message["content"]}</span>
                 </div>
                 """, unsafe_allow_html=True)
             else:
                 st.markdown(f"""
-                <div class="chat-message" style="border-left: 3px solid #0ea5e9; background: rgba(14, 165, 233, 0.1);">
-                    <strong style="color: #0ea5e9;">ReliefMate:</strong><br>
-                    <span style="color: #e2e8f0;">{message["content"]}</span>
+                <div class="chat-message" style="border-left: 3px solid #2563eb; background: #dbeafe;">
+                    <strong style="color: #2563eb;">ReliefMate:</strong><br>
+                    <span style="color: #0f172a;">{message["content"]}</span>
                 </div>
                 """, unsafe_allow_html=True)
         st.markdown('</div>', unsafe_allow_html=True)
     else:
         st.markdown("""
-        <div style="text-align: center; padding: 60px 40px; background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border-radius: 12px; margin: 24px auto; max-width: 700px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.08);">
-            <h3 style="color: #ffffff; margin-bottom: 12px; font-weight: 700; letter-spacing: 0.02em;">Assistance Ready</h3>
-            <p style="color: #94a3b8;">Ask about emergency procedures, disaster preparedness, or resource management</p>
+        <div style="text-align: center; padding: 60px 40px; background: #ffffff; border-radius: 8px; margin: 24px auto; max-width: 700px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;">
+            <h3 style="color: #0f172a; margin-bottom: 12px; font-weight: 700; letter-spacing: -0.01em;">Assistance Ready</h3>
+            <p style="color: #475569;">Ask about emergency procedures, disaster preparedness, or resource management</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -639,7 +580,7 @@ def render_chat_interface(model, api_status):
 # ----------------------------
 def render_reports_dashboard(reports):
     st.markdown("## Live Reports")
-    st.markdown('<p style="color: #94a3b8; margin-bottom: 24px; text-align: center;">Real-time monitoring of active disaster response operations</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #475569; margin-bottom: 24px; text-align: center;">Real-time monitoring of active disaster response operations</p>', unsafe_allow_html=True)
     
     # Status summary
     col1, col2, col3, col4 = st.columns(4)
@@ -683,7 +624,7 @@ def render_reports_dashboard(reports):
     
     # Live Incident Map
     st.markdown("### Live Incident Map (Demo)")
-    st.markdown('<p style="color: #94a3b8; margin-bottom: 20px; text-align: center;">Demo – Live integration ready with real-time GPS tracking</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #475569; margin-bottom: 20px; text-align: center;">Demo – Live integration ready with real-time GPS tracking</p>', unsafe_allow_html=True)
     
     # Demo coordinates for Gujarat cities
     map_data = pd.DataFrame({
@@ -691,9 +632,9 @@ def render_reports_dashboard(reports):
         'lon': [70.8022, 72.5714, 72.8311, 72.1519]
     })
     
-    st.markdown('<div style="background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.08);">', unsafe_allow_html=True)
+    st.markdown('<div style="background: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 24px; border: 1px solid #e2e8f0;">', unsafe_allow_html=True)
     st.map(map_data, zoom=6)
-    st.markdown('<p style="color: #94a3b8; font-size: 0.85rem; text-align: center; margin-top: 12px;">Showing: Rajkot • Ahmedabad • Surat • Bhavnagar</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #475569; font-size: 0.875rem; text-align: center; margin-top: 12px;">Showing: Rajkot • Ahmedabad • Surat • Bhavnagar</p>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
     
     # Detailed reports
@@ -714,19 +655,19 @@ def render_reports_dashboard(reports):
         st.markdown(f"""
         <div class="glass-card" style="margin-bottom: 24px !important; padding: 28px !important;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
-                <h2 style="color: #ffffff; margin: 0; font-size: 1.6rem; font-weight: 700; letter-spacing: 0.02em;">
+                <h2 style="color: #0f172a; margin: 0; font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em;">
                     {report["location"]}
                 </h2>
                 <span class="{status_class}" style="font-size: 0.9rem; padding: 6px 14px;">
                     {report["status"]}
                 </span>
             </div>
-            <div style="background: rgba(15, 23, 42, 0.4); padding: 18px; border-radius: 8px; margin-bottom: 12px; border-left: 3px solid rgba(14, 165, 233, 0.5);">
-                <p style="margin: 0 0 8px 0; font-size: 0.95rem;"><strong style="color: #e5e7eb; font-weight: 600;">Disaster Type:</strong> <span style="color: #e2e8f0;">{report["type"]}</span></p>
-                <p style="margin: 0; font-size: 0.95rem;"><strong style="color: #e5e7eb; font-weight: 600;">Requirements:</strong> <span style="color: #e2e8f0;">{report["needs"]}</span></p>
+            <div style="background: #f8fafc; padding: 18px; border-radius: 8px; margin-bottom: 12px; border-left: 3px solid #2563eb;">
+                <p style="margin: 0 0 8px 0; font-size: 0.95rem;"><strong style="color: #0f172a; font-weight: 700;">Disaster Type:</strong> <span style="color: #475569;">{report["type"]}</span></p>
+                <p style="margin: 0; font-size: 0.95rem;"><strong style="color: #0f172a; font-weight: 700;">Requirements:</strong> <span style="color: #475569;">{report["needs"]}</span></p>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: #94a3b8; font-size: 0.85rem;">
-                <p style="margin: 0;"><strong style="color: #94a3b8;">Response Team:</strong> <span style="color: #cbd5e1; font-weight: 600;">{report["team"]}</span></p>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: #475569; font-size: 0.875rem;">
+                <p style="margin: 0;"><strong style="color: #0f172a;">Response Team:</strong> <span style="color: #475569; font-weight: 600;">{report["team"]}</span></p>
                 <p style="margin: 0; color: #64748b; font-style: italic;">Last Updated: {datetime.datetime.now().strftime('%H:%M')} IST</p>
             </div>
         </div>
@@ -737,7 +678,7 @@ def render_reports_dashboard(reports):
 # ----------------------------
 def render_analytics(analytics_data):
     st.markdown("## Insights")
-    st.markdown('<p style="color: #94a3b8; margin-bottom: 20px; text-align: center; font-size: 0.95rem;">Operational trends from the last 7 days</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #475569; margin-bottom: 20px; text-align: center; font-size: 0.95rem;">Operational trends from the last 7 days</p>', unsafe_allow_html=True)
     
     st.markdown("<br>", unsafe_allow_html=True)
     
@@ -745,20 +686,19 @@ def render_analytics(analytics_data):
     st.markdown("### Live Map (Future Integration)")
     st.markdown("""
     <div style="
-        background: rgba(30, 41, 59, 0.7);
-        backdrop-filter: blur(12px);
+        background: #ffffff;
         padding: 48px 32px;
-        border-radius: 12px;
+        border-radius: 8px;
         text-align: center;
-        border: 2px dashed rgba(148, 163, 184, 0.3);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        border: 2px dashed #cbd5e1;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         margin-bottom: 32px;
     ">
-        <h3 style="color: #ffffff; margin-bottom: 12px; font-weight: 700; letter-spacing: 0.02em;">Live Map Integration</h3>
-        <p style="color: #94a3b8; font-size: 0.95rem; margin: 0;">
+        <h3 style="color: #0f172a; margin-bottom: 12px; font-weight: 700; letter-spacing: -0.01em;">Live Map Integration</h3>
+        <p style="color: #475569; font-size: 0.95rem; margin: 0;">
             Google Maps / ISRO Bhuvan / NDMA Integration – Planned
         </p>
-        <p style="color: #64748b; font-size: 0.85rem; margin-top: 10px;">
+        <p style="color: #64748b; font-size: 0.875rem; margin-top: 10px;">
             Real-time GPS tracking, disaster zones, and safe routes visualization
         </p>
     </div>
@@ -766,7 +706,7 @@ def render_analytics(analytics_data):
     
     # Safe Zones and Shelters
     st.markdown("### Nearby Safe Zones")
-    st.markdown('<div style="background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.08);">', unsafe_allow_html=True)
+    st.markdown('<div style="background: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 24px; border: 1px solid #e2e8f0;">', unsafe_allow_html=True)
     
     safe_places = [
         {"name": "Govt. School - Sector 12", "distance": "1.2 km", "type": "Shelter"},
@@ -779,10 +719,10 @@ def render_analytics(analytics_data):
     for idx, place in enumerate(safe_places):
         with cols[idx]:
             st.markdown(f"""
-            <div style="text-align: center; padding: 16px; background: rgba(15, 23, 42, 0.6); border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.08);">
-                <p style="color: #e2e8f0; font-weight: 600; font-size: 0.9rem; margin: 0 0 6px 0;">{place['name']}</p>
-                <p style="color: #0ea5e9; font-size: 0.85rem; margin: 0 0 6px 0;">{place['distance']}</p>
-                <span style="background: rgba(14, 165, 233, 0.15); color: #0ea5e9; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; border: 1px solid rgba(14, 165, 233, 0.3);">{place['type']}</span>
+            <div style="text-align: center; padding: 16px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+                <p style="color: #0f172a; font-weight: 700; font-size: 0.9rem; margin: 0 0 6px 0;">{place['name']}</p>
+                <p style="color: #2563eb; font-size: 0.875rem; margin: 0 0 6px 0; font-weight: 600;">{place['distance']}</p>
+                <span style="background: #dbeafe; color: #2563eb; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; border: 1px solid #93c5fd; font-weight: 600;">{place['type']}</span>
             </div>
             """, unsafe_allow_html=True)
     
@@ -792,7 +732,7 @@ def render_analytics(analytics_data):
     
     # Operational Parameters
     st.markdown("### Operational Parameters")
-    st.markdown('<p style="color: #94a3b8; margin-bottom: 20px; text-align: center;">Key disaster response metrics and indicators</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #475569; margin-bottom: 20px; text-align: center;">Key disaster response metrics and indicators</p>', unsafe_allow_html=True)
     
     col1, col2, col3, col4 = st.columns(4)
     
@@ -806,7 +746,7 @@ def render_analytics(analytics_data):
     with col1:
         st.markdown(f"""
         <div class="glass-card" style="text-align: center; min-height: 160px;">
-            <div class="metric-value" style="font-size: 1.8rem; color: #ef4444;">{earthquake_mag}</div>
+            <div class="metric-value" style="font-size: 1.8rem; color: #dc2626;">{earthquake_mag}</div>
             <div class="metric-label" style="font-size: 0.8rem;">Earthquake Magnitude</div>
             <p style="color: #64748b; font-size: 0.75rem; margin: 8px 0 0 0;">(Richter Scale)</p>
         </div>
@@ -815,7 +755,7 @@ def render_analytics(analytics_data):
     with col2:
         st.markdown(f"""
         <div class="glass-card" style="text-align: center; min-height: 160px;">
-            <div style="font-size: 0.9rem; color: #0ea5e9; font-weight: 600; margin: 12px 0;">{safe_zone}</div>
+            <div style="font-size: 0.9rem; color: #2563eb; font-weight: 700; margin: 12px 0;">{safe_zone}</div>
             <div class="metric-label" style="font-size: 0.8rem;">Nearest Safe Zone</div>
         </div>
         """, unsafe_allow_html=True)
@@ -823,7 +763,7 @@ def render_analytics(analytics_data):
     with col3:
         st.markdown(f"""
         <div class="glass-card" style="text-align: center; min-height: 160px;">
-            <div class="metric-value" style="font-size: 1.8rem; color: #f59e0b;">{distance} km</div>
+            <div class="metric-value" style="font-size: 1.8rem; color: #d97706;">{distance} km</div>
             <div class="metric-label" style="font-size: 0.8rem;">Distance to Safety</div>
         </div>
         """, unsafe_allow_html=True)
@@ -831,7 +771,7 @@ def render_analytics(analytics_data):
     with col4:
         st.markdown(f"""
         <div class="glass-card" style="text-align: center; min-height: 160px;">
-            <div class="metric-value" style="font-size: 1.8rem; color: #10b981;">{eta} min</div>
+            <div class="metric-value" style="font-size: 1.8rem; color: #16a34a;">{eta} min</div>
             <div class="metric-label" style="font-size: 0.8rem;">Response ETA</div>
         </div>
         """, unsafe_allow_html=True)
@@ -848,8 +788,8 @@ def render_analytics(analytics_data):
     
     # Charts
     st.markdown("### 7-Day Operational Trends")
-    st.markdown('<p style="color: #94a3b8; margin-bottom: 16px; text-align: center; font-size: 0.9rem;">Track relief operations performance over the past week</p>', unsafe_allow_html=True)
-    st.markdown('<div style="background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); margin-bottom: 28px; border: 1px solid rgba(255, 255, 255, 0.08);">', unsafe_allow_html=True)
+    st.markdown('<p style="color: #475569; margin-bottom: 16px; text-align: center; font-size: 0.9rem;">Track relief operations performance over the past week</p>', unsafe_allow_html=True)
+    st.markdown('<div style="background: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 28px; border: 1px solid #e2e8f0;">', unsafe_allow_html=True)
     
     # Line chart
     chart_data = df.set_index('Date')[['New Requests', 'Resolved Cases', 'Active Cases']]
@@ -858,8 +798,8 @@ def render_analytics(analytics_data):
     
     # Bar chart
     st.markdown("### Daily Performance Comparison")
-    st.markdown('<p style="color: #94a3b8; margin-bottom: 16px; text-align: center; font-size: 0.9rem;">Side-by-side comparison of daily operations metrics</p>', unsafe_allow_html=True)
-    st.markdown('<div style="background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); margin-bottom: 28px; border: 1px solid rgba(255, 255, 255, 0.08);">', unsafe_allow_html=True)
+    st.markdown('<p style="color: #475569; margin-bottom: 16px; text-align: center; font-size: 0.9rem;">Side-by-side comparison of daily operations metrics</p>', unsafe_allow_html=True)
+    st.markdown('<div style="background: #ffffff; padding: 24px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); margin-bottom: 28px; border: 1px solid #e2e8f0;">', unsafe_allow_html=True)
     st.bar_chart(chart_data, use_container_width=True, height=400)
     st.markdown('</div>', unsafe_allow_html=True)
     
@@ -934,11 +874,11 @@ def render_analytics(analytics_data):
 # ----------------------------
 def render_admin_panel():
     st.markdown("## Administration")
-    st.markdown('<p style="color: #94a3b8; margin-bottom: 24px; text-align: center;">Manage relief operations and system configuration</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #475569; margin-bottom: 24px; text-align: center;">Manage relief operations and system configuration</p>', unsafe_allow_html=True)
     
     # Live Tracking Status
     st.markdown("### Live Tracking Status")
-    st.markdown('<p style="color: #94a3b8; margin-bottom: 20px; text-align: center;">Real-time monitoring of field operations and resource deployment</p>', unsafe_allow_html=True)
+    st.markdown('<p style="color: #475569; margin-bottom: 20px; text-align: center;">Real-time monitoring of field operations and resource deployment</p>', unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns(3)
     
@@ -949,8 +889,8 @@ def render_admin_panel():
     with col1:
         st.markdown("""
         <div class="glass-card" style="text-align: center;">
-            <p style="margin: 8px 0; font-weight: 600; font-size: 1.2rem; color: #10b981;">Active</p>
-            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">GPS Tracking</p>
+            <p style="margin: 8px 0; font-weight: 700; font-size: 1.2rem; color: #16a34a;">Active</p>
+            <p style="margin: 0; font-size: 0.875rem; color: #475569;">GPS Tracking</p>
             <div style="margin-top: 12px;">
                 <span class="status-text">Online</span>
             </div>
@@ -960,8 +900,8 @@ def render_admin_panel():
     with col2:
         st.markdown(f"""
         <div class="glass-card" style="text-align: center;">
-            <div class="metric-value" style="font-size: 2rem; color: #0ea5e9;">{teams_online}</div>
-            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">Teams Online</p>
+            <div class="metric-value" style="font-size: 2rem; color: #2563eb;">{teams_online}</div>
+            <p style="margin: 0; font-size: 0.875rem; color: #475569;">Teams Online</p>
             <div style="margin-top: 12px;">
                 <span class="status-text">Live</span>
             </div>
@@ -971,8 +911,8 @@ def render_admin_panel():
     with col3:
         st.markdown(f"""
         <div class="glass-card" style="text-align: center;">
-            <div class="metric-value" style="font-size: 2rem; color: #f59e0b;">{vehicles_deployed}</div>
-            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">Vehicles Deployed</p>
+            <div class="metric-value" style="font-size: 2rem; color: #d97706;">{vehicles_deployed}</div>
+            <p style="margin: 0; font-size: 0.875rem; color: #475569;">Vehicles Deployed</p>
             <div style="margin-top: 12px;">
                 <span class="status-text">Active</span>
             </div>
@@ -986,7 +926,7 @@ def render_admin_panel():
     with col1:
         st.markdown("""
         <div class="glass-card">
-            <h3 style="margin-bottom: 20px; color: #ffffff; font-weight: 600;">
+            <h3 style="margin-bottom: 20px; color: #0f172a; font-weight: 700;">
                 Submit New Report
             </h3>
         </div>
@@ -1003,15 +943,15 @@ def render_admin_panel():
     with col2:
         st.markdown("""
         <div class="glass-card">
-            <h3 style="margin-bottom: 20px; color: #ffffff; font-weight: 600;">
+            <h3 style="margin-bottom: 20px; color: #0f172a; font-weight: 700;">
                 Bulk Data Upload
             </h3>
         </div>
         """, unsafe_allow_html=True)
         
         st.markdown("""
-        <div style="background: rgba(15, 23, 42, 0.6); border: 2px dashed rgba(148, 163, 184, 0.3); border-radius: 12px; padding: 32px; text-align: center; margin-bottom: 20px;">
-            <p style="color: #94a3b8; margin: 0; font-weight: 500;">Drop CSV file or click to browse</p>
+        <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 32px; text-align: center; margin-bottom: 20px;">
+            <p style="color: #475569; margin: 0; font-weight: 600;">Drop CSV file or click to browse</p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -1038,32 +978,32 @@ def render_admin_panel():
     with col1:
         st.markdown("""
         <div class="glass-card" style="text-align: center;">
-            <p style="margin: 0; font-weight: 600; color: #10b981;">Operational</p>
-            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">System Status</p>
+            <p style="margin: 0; font-weight: 700; color: #16a34a;">Operational</p>
+            <p style="margin: 0; font-size: 0.875rem; color: #475569;">System Status</p>
         </div>
         """, unsafe_allow_html=True)
     
     with col2:
         st.markdown("""
         <div class="glass-card" style="text-align: center;">
-            <p style="margin: 0; font-weight: 600; color: #10b981;">Connected</p>
-            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">API Status</p>
+            <p style="margin: 0; font-weight: 700; color: #16a34a;">Connected</p>
+            <p style="margin: 0; font-size: 0.875rem; color: #475569;">API Status</p>
         </div>
         """, unsafe_allow_html=True)
     
     with col3:
         st.markdown("""
         <div class="glass-card" style="text-align: center;">
-            <p style="margin: 0; font-weight: 600; color: #10b981;">Online</p>
-            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">Database</p>
+            <p style="margin: 0; font-weight: 700; color: #16a34a;">Online</p>
+            <p style="margin: 0; font-size: 0.875rem; color: #475569;">Database</p>
         </div>
         """, unsafe_allow_html=True)
     
     with col4:
         st.markdown("""
         <div class="glass-card" style="text-align: center;">
-            <p style="margin: 0; font-weight: 600; color: #0ea5e9;">&lt;2s</p>
-            <p style="margin: 0; font-size: 0.85rem; color: #94a3b8;">Response Time</p>
+            <p style="margin: 0; font-weight: 700; color: #2563eb;">&lt;2s</p>
+            <p style="margin: 0; font-size: 0.875rem; color: #475569;">Response Time</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -1089,7 +1029,7 @@ def main():
     # Status indicator
     st.markdown(f"""
     <div style="text-align: center; margin: 24px 0 32px 0;">
-        <span style="background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); padding: 8px 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.08); color: #94a3b8; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); font-size: 0.9rem;">
+        <span style="background: #ffffff; padding: 8px 20px; border-radius: 8px; border: 1px solid #e2e8f0; color: #475569; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); font-size: 0.9rem; font-weight: 600;">
             API Status: {api_status}
         </span>
     </div>
@@ -1110,21 +1050,21 @@ def main():
     with tab4:
         render_admin_panel()
     
-    # Footer - Professional and Clean
+    # Footer - Clean and Professional
     st.html("""
-    <div style="margin-top: 60px; padding: 36px 24px; text-align: center; background: rgba(30, 41, 59, 0.7); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);">
-        <p style="color: #ffffff; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 6px;">Marwadi University</p>
-        <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 4px;">Department of Computer Science & Engineering (AI & ML)</p>
-        <p style="color: #cbd5e1; font-size: 0.9rem; margin-bottom: 3px;">Student: Ravi Gohel N. (2nd Year)</p>
-        <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 24px;">Email: <a href="mailto:ravi.n.gohel811@gmail.com" style="color: #0ea5e9; text-decoration: none;">ravi.n.gohel811@gmail.com</a></p>
+    <div style="margin-top: 60px; padding: 36px 24px; text-align: center; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+        <p style="color: #0f172a; font-size: 1.125rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px;">Marwadi University</p>
+        <p style="color: #475569; font-size: 0.95rem; margin-bottom: 6px; font-weight: 500;">Department of Computer Science & Engineering (AI & ML)</p>
+        <p style="color: #475569; font-size: 0.9rem; margin-bottom: 4px;">Student: Ravi Gohel N. (2nd Year)</p>
+        <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 28px;">Email: <a href="mailto:ravi.n.gohel811@gmail.com" style="color: #2563eb; text-decoration: none; font-weight: 600;">ravi.n.gohel811@gmail.com</a></p>
         
-        <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 16px; margin: 20px auto; max-width: 500px;">
-            <p style="color: #ef4444; font-weight: 600; font-size: 1rem; margin-bottom: 6px;">Emergency Numbers</p>
-            <p style="color: #fca5a5; font-size: 1.05rem; font-weight: 600; margin: 0;">112 | 108 | 101</p>
+        <div style="background: #fee2e2; border: 1px solid #fca5a5; border-radius: 8px; padding: 16px; margin: 20px auto; max-width: 500px;">
+            <p style="color: #dc2626; font-weight: 700; font-size: 1rem; margin-bottom: 6px;">Emergency Numbers</p>
+            <p style="color: #dc2626; font-size: 1.125rem; font-weight: 700; margin: 0;">112 | 108 | 101</p>
         </div>
         
-        <p style="color: #64748b; font-size: 0.85rem; margin-top: 24px; margin-bottom: 3px;">© 2025 ReliefMate</p>
-        <p style="color: #475569; font-size: 0.8rem; margin: 0;">Disaster Relief Management Platform</p>
+        <p style="color: #64748b; font-size: 0.875rem; margin-top: 28px; margin-bottom: 4px;">© 2025 ReliefMate</p>
+        <p style="color: #94a3b8; font-size: 0.8rem; margin: 0;">Disaster Relief Management Platform</p>
     </div>
     """)
 
