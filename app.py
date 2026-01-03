@@ -44,7 +44,7 @@ def inject_custom_css():
     
     /* Header Section - Clean Professional Card */
     .hero-container {
-        background: rgba(30, 41, 59, 0.6);
+        background: rgba(30, 41, 59, 0.7);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -60,10 +60,10 @@ def inject_custom_css():
     
     .hero-title {
         font-size: 2.2rem;
-        font-weight: 600;
+        font-weight: 700;
         margin-bottom: 8px;
         color: #ffffff;
-        letter-spacing: -0.01em;
+        letter-spacing: 0.02em;
     }
     
     .hero-subtitle {
@@ -95,7 +95,7 @@ def inject_custom_css():
     
     /* Clean Flat Cards */
     .glass-card {
-        background: rgba(30, 41, 59, 0.6) !important;
+        background: rgba(30, 41, 59, 0.7) !important;
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
         border-radius: 12px !important;
@@ -110,7 +110,7 @@ def inject_custom_css():
     
     /* Chat Interface - Clean Console Style */
     .chat-container {
-        background: rgba(30, 41, 59, 0.6) !important;
+        background: rgba(30, 41, 59, 0.7) !important;
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
         border-radius: 12px !important;
@@ -188,7 +188,7 @@ def inject_custom_css():
     
     /* Metrics - Clean Stats Cards */
     .metric-container {
-        background: rgba(30, 41, 59, 0.6);
+        background: rgba(30, 41, 59, 0.7);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-radius: 12px;
@@ -199,17 +199,17 @@ def inject_custom_css():
     }
     
     .metric-value {
-        font-size: 2rem;
-        font-weight: 700;
+        font-size: 2.25rem;
+        font-weight: 800;
         color: #ffffff;
         margin-bottom: 6px;
-        letter-spacing: -0.01em;
+        letter-spacing: 0.02em;
     }
     
     .metric-label {
         font-size: 0.875rem;
-        color: #94a3b8;
-        font-weight: 500;
+        color: #e5e7eb;
+        font-weight: 600;
     }
     
     /* Tab Styling - Clean Professional Tabs */
@@ -223,7 +223,7 @@ def inject_custom_css():
     }
     
     .stTabs [data-baseweb="tab"] {
-        background: rgba(30, 41, 59, 0.6) !important;
+        background: rgba(30, 41, 59, 0.7) !important;
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         border-radius: 8px;
@@ -265,8 +265,8 @@ def inject_custom_css():
     
     h1, h2, h3 {
         color: #ffffff;
-        font-weight: 600;
-        letter-spacing: -0.01em;
+        font-weight: 700;
+        letter-spacing: 0.02em;
         margin-top: 0.5rem;
         margin-bottom: 1rem;
     }
@@ -275,11 +275,15 @@ def inject_custom_css():
         margin-bottom: 16px;
         margin-top: 32px;
         font-size: 1.6rem;
+        font-weight: 700;
+        color: #ffffff;
     }
     
     h3 {
         font-size: 1.2rem;
         margin-top: 24px;
+        font-weight: 700;
+        color: #ffffff;
     }
     
     p, label {
@@ -341,7 +345,7 @@ def inject_custom_css():
     
     /* Streamlit Native Components */
     .stMetric {
-        background: rgba(30, 41, 59, 0.6);
+        background: rgba(30, 41, 59, 0.7);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -351,18 +355,19 @@ def inject_custom_css():
     }
     
     .stMetric label {
-        color: #94a3b8 !important;
-        font-weight: 500;
+        color: #e5e7eb !important;
+        font-weight: 600;
     }
     
     .stMetric [data-testid="stMetricValue"] {
         color: #ffffff !important;
-        font-weight: 700;
+        font-weight: 800;
+        font-size: 2.25rem !important;
     }
     
     /* File Uploader */
     .stFileUploader {
-        background: rgba(30, 41, 59, 0.6);
+        background: rgba(30, 41, 59, 0.7);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border: 2px dashed rgba(148, 163, 184, 0.3);
@@ -378,7 +383,7 @@ def inject_custom_css():
     
     /* Data Frame */
     .stDataFrame {
-        background: rgba(30, 41, 59, 0.6);
+        background: rgba(30, 41, 59, 0.7);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-radius: 12px;
@@ -463,7 +468,7 @@ def generate_sample_data():
 def render_hero():
     st.markdown("""
     <div class="glass-card" style="margin-top: 24px;">
-        <h1 style="font-size:2.2rem; margin-bottom:8px;">ReliefMate</h1>
+        <h1 style="font-size:2.2rem; margin-bottom:8px; font-weight: 700; letter-spacing: 0.02em; color: #ffffff;">ReliefMate</h1>
         <p style="color:#cbd5e1; font-size:1rem; margin-bottom:16px;">
             Disaster Relief Management Platform
         </p>
@@ -482,7 +487,7 @@ def render_hero():
 def render_university_header():
     st.markdown("""
     <div style="
-        background: rgba(30, 41, 59, 0.6);
+        background: rgba(30, 41, 59, 0.7);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.08);
@@ -493,7 +498,7 @@ def render_university_header():
         max-width: 900px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     ">
-        <p style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin: 0 0 6px 0;">
+        <p style="color: #ffffff; font-size: 1.1rem; font-weight: 700; margin: 0 0 6px 0; letter-spacing: 0.02em;">
             Marwadi University
         </p>
         <p style="color: #94a3b8; font-size: 0.95rem; margin: 0; font-weight: 500;">
@@ -527,7 +532,7 @@ def render_chat_interface(model, api_status):
     <div style="
         max-width: 1000px; 
         margin: 0 auto 24px auto; 
-        background: rgba(30, 41, 59, 0.6); 
+        background: rgba(30, 41, 59, 0.7); 
         backdrop-filter: blur(12px); 
         -webkit-backdrop-filter: blur(12px);
         border-radius: 12px; 
@@ -623,8 +628,8 @@ def render_chat_interface(model, api_status):
         st.markdown('</div>', unsafe_allow_html=True)
     else:
         st.markdown("""
-        <div style="text-align: center; padding: 60px 40px; background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(12px); border-radius: 12px; margin: 24px auto; max-width: 700px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.08);">
-            <h3 style="color: #ffffff; margin-bottom: 12px; font-weight: 600;">Assistance Ready</h3>
+        <div style="text-align: center; padding: 60px 40px; background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border-radius: 12px; margin: 24px auto; max-width: 700px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.08);">
+            <h3 style="color: #ffffff; margin-bottom: 12px; font-weight: 700; letter-spacing: 0.02em;">Assistance Ready</h3>
             <p style="color: #94a3b8;">Ask about emergency procedures, disaster preparedness, or resource management</p>
         </div>
         """, unsafe_allow_html=True)
@@ -647,7 +652,7 @@ def render_reports_dashboard(reports):
     with col1:
         st.markdown("""
         <div class="metric-container">
-            <div class="metric-value" style="color: #ef4444;">{}</div>
+            <div class="metric-value">{}</div>
             <div class="metric-label">Critical Cases</div>
         </div>
         """.format(critical_count), unsafe_allow_html=True)
@@ -655,7 +660,7 @@ def render_reports_dashboard(reports):
     with col2:
         st.markdown("""
         <div class="metric-container">
-            <div class="metric-value" style="color: #f59e0b;">{}</div>
+            <div class="metric-value">{}</div>
             <div class="metric-label">Active Operations</div>
         </div>
         """.format(active_count), unsafe_allow_html=True)
@@ -663,7 +668,7 @@ def render_reports_dashboard(reports):
     with col3:
         st.markdown("""
         <div class="metric-container">
-            <div class="metric-value" style="color: #10b981;">{}</div>
+            <div class="metric-value">{}</div>
             <div class="metric-label">Resolved Cases</div>
         </div>
         """.format(resolved_count), unsafe_allow_html=True)
@@ -671,7 +676,7 @@ def render_reports_dashboard(reports):
     with col4:
         st.markdown("""
         <div class="metric-container">
-            <div class="metric-value" style="color: #3b82f6;">{}</div>
+            <div class="metric-value">{}</div>
             <div class="metric-label">Under Monitoring</div>
         </div>
         """.format(monitoring_count), unsafe_allow_html=True)
@@ -686,7 +691,7 @@ def render_reports_dashboard(reports):
         'lon': [70.8022, 72.5714, 72.8311, 72.1519]
     })
     
-    st.markdown('<div style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(12px); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.08);">', unsafe_allow_html=True)
+    st.markdown('<div style="background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.08);">', unsafe_allow_html=True)
     st.map(map_data, zoom=6)
     st.markdown('<p style="color: #94a3b8; font-size: 0.85rem; text-align: center; margin-top: 12px;">Showing: Rajkot • Ahmedabad • Surat • Bhavnagar</p>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
@@ -709,7 +714,7 @@ def render_reports_dashboard(reports):
         st.markdown(f"""
         <div class="glass-card" style="margin-bottom: 24px !important; padding: 28px !important;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
-                <h2 style="color: #ffffff; margin: 0; font-size: 1.6rem; font-weight: 600;">
+                <h2 style="color: #ffffff; margin: 0; font-size: 1.6rem; font-weight: 700; letter-spacing: 0.02em;">
                     {report["location"]}
                 </h2>
                 <span class="{status_class}" style="font-size: 0.9rem; padding: 6px 14px;">
@@ -717,8 +722,8 @@ def render_reports_dashboard(reports):
                 </span>
             </div>
             <div style="background: rgba(15, 23, 42, 0.4); padding: 18px; border-radius: 8px; margin-bottom: 12px; border-left: 3px solid rgba(14, 165, 233, 0.5);">
-                <p style="margin: 0 0 8px 0; font-size: 0.95rem;"><strong style="color: #0ea5e9;">Disaster Type:</strong> <span style="color: #e2e8f0;">{report["type"]}</span></p>
-                <p style="margin: 0; font-size: 0.95rem;"><strong style="color: #0ea5e9;">Requirements:</strong> <span style="color: #e2e8f0;">{report["needs"]}</span></p>
+                <p style="margin: 0 0 8px 0; font-size: 0.95rem;"><strong style="color: #e5e7eb; font-weight: 600;">Disaster Type:</strong> <span style="color: #e2e8f0;">{report["type"]}</span></p>
+                <p style="margin: 0; font-size: 0.95rem;"><strong style="color: #e5e7eb; font-weight: 600;">Requirements:</strong> <span style="color: #e2e8f0;">{report["needs"]}</span></p>
             </div>
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: #94a3b8; font-size: 0.85rem;">
                 <p style="margin: 0;"><strong style="color: #94a3b8;">Response Team:</strong> <span style="color: #cbd5e1; font-weight: 600;">{report["team"]}</span></p>
@@ -740,7 +745,7 @@ def render_analytics(analytics_data):
     st.markdown("### Live Map (Future Integration)")
     st.markdown("""
     <div style="
-        background: rgba(30, 41, 59, 0.6);
+        background: rgba(30, 41, 59, 0.7);
         backdrop-filter: blur(12px);
         padding: 48px 32px;
         border-radius: 12px;
@@ -749,7 +754,7 @@ def render_analytics(analytics_data):
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
         margin-bottom: 32px;
     ">
-        <h3 style="color: #ffffff; margin-bottom: 12px; font-weight: 600;">Live Map Integration</h3>
+        <h3 style="color: #ffffff; margin-bottom: 12px; font-weight: 700; letter-spacing: 0.02em;">Live Map Integration</h3>
         <p style="color: #94a3b8; font-size: 0.95rem; margin: 0;">
             Google Maps / ISRO Bhuvan / NDMA Integration – Planned
         </p>
@@ -761,7 +766,7 @@ def render_analytics(analytics_data):
     
     # Safe Zones and Shelters
     st.markdown("### Nearby Safe Zones")
-    st.markdown('<div style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(12px); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.08);">', unsafe_allow_html=True)
+    st.markdown('<div style="background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); margin-bottom: 24px; border: 1px solid rgba(255, 255, 255, 0.08);">', unsafe_allow_html=True)
     
     safe_places = [
         {"name": "Govt. School - Sector 12", "distance": "1.2 km", "type": "Shelter"},
@@ -844,7 +849,7 @@ def render_analytics(analytics_data):
     # Charts
     st.markdown("### 7-Day Operational Trends")
     st.markdown('<p style="color: #94a3b8; margin-bottom: 16px; text-align: center; font-size: 0.9rem;">Track relief operations performance over the past week</p>', unsafe_allow_html=True)
-    st.markdown('<div style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(12px); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); margin-bottom: 28px; border: 1px solid rgba(255, 255, 255, 0.08);">', unsafe_allow_html=True)
+    st.markdown('<div style="background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); margin-bottom: 28px; border: 1px solid rgba(255, 255, 255, 0.08);">', unsafe_allow_html=True)
     
     # Line chart
     chart_data = df.set_index('Date')[['New Requests', 'Resolved Cases', 'Active Cases']]
@@ -854,7 +859,7 @@ def render_analytics(analytics_data):
     # Bar chart
     st.markdown("### Daily Performance Comparison")
     st.markdown('<p style="color: #94a3b8; margin-bottom: 16px; text-align: center; font-size: 0.9rem;">Side-by-side comparison of daily operations metrics</p>', unsafe_allow_html=True)
-    st.markdown('<div style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(12px); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); margin-bottom: 28px; border: 1px solid rgba(255, 255, 255, 0.08);">', unsafe_allow_html=True)
+    st.markdown('<div style="background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); padding: 24px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); margin-bottom: 28px; border: 1px solid rgba(255, 255, 255, 0.08);">', unsafe_allow_html=True)
     st.bar_chart(chart_data, use_container_width=True, height=400)
     st.markdown('</div>', unsafe_allow_html=True)
     
@@ -1084,7 +1089,7 @@ def main():
     # Status indicator
     st.markdown(f"""
     <div style="text-align: center; margin: 24px 0 32px 0;">
-        <span style="background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(12px); padding: 8px 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.08); color: #94a3b8; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); font-size: 0.9rem;">
+        <span style="background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); padding: 8px 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.08); color: #94a3b8; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); font-size: 0.9rem;">
             API Status: {api_status}
         </span>
     </div>
@@ -1107,8 +1112,8 @@ def main():
     
     # Footer - Professional and Clean
     st.html("""
-    <div style="margin-top: 60px; padding: 36px 24px; text-align: center; background: rgba(30, 41, 59, 0.6); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);">
-        <p style="color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 6px;">Marwadi University</p>
+    <div style="margin-top: 60px; padding: 36px 24px; text-align: center; background: rgba(30, 41, 59, 0.7); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);">
+        <p style="color: #ffffff; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 6px;">Marwadi University</p>
         <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 4px;">Department of Computer Science & Engineering (AI & ML)</p>
         <p style="color: #cbd5e1; font-size: 0.9rem; margin-bottom: 3px;">Student: Ravi Gohel N. (2nd Year)</p>
         <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 24px;">Email: <a href="mailto:ravi.n.gohel811@gmail.com" style="color: #0ea5e9; text-decoration: none;">ravi.n.gohel811@gmail.com</a></p>
